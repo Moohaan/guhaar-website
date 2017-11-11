@@ -26,8 +26,8 @@ SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 DEBUG = True
 # DEBUG = True
 
-# ALLOWED_HOSTS = ['monion.herokuapp.com', 'guhaar.com', 'www.guhaar.com', '127.0.0.1:8000', '127.0.0.1:5000']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com', '127.0.0.1:8000', '127.0.0.1:5000']
+# ALLOWED_HOSTS = []
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mojjominion@gmail.com'
 EMAIL_HOST_PASSWORD = 'm21908308v'
