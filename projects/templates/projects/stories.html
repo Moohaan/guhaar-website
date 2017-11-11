@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+
+  {% block body %}
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
+  <script src="{% static '/js/project.js'%}"></script>
+
+    <body>
+
+      <div class="mask">
+        <div class="stories_container text-center container">
+          <div>
+            <h1>Our Stories</h1>
+            <p> description </p>
+          </div>
+          <div class="stories text-left">
+            {% for story in stories %}
+              <div id="{{ story.pk }}" class="story" url="{{ story.image.url }}">
+                <div>
+                  <img src="{{ story.story_img.url }}" alt="{{ story.story_title }}" width="400px">
+                </div>
+                <div>
+                  <h2><b>{{ story.story_title }}</b></h2><span>{{story.date_started}}</span>
+                  <p>{{ story.story_description |slice:":500" }}</p>
+                  {# <p class="hide">{{ member.description }}</p>#}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="modal container text-left">
+          <div class="close_modal">
+            <span>Close</span>
+          </div>
+          <div>
+            <div>
+              <!--{% load static %}-->
+              <img width="300px">
+              <h2>Name</h2>
+              <p>short_descriptin</p>
+            </div>
+          </div>
+          <div class="member_details">
+            <div>
+              <p></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </body>
+  {% endblock body %}
+</html>

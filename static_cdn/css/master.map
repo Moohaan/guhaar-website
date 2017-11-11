@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "master.css",
+	"sources": [
+		"master.scss"
+	],
+	"sourcesContent": [
+		"$yellow_background: #FFF800;\n// $yellow_background: #FFF;\n$font_color: #828BCC;\n$navbar_background_color: #252935;\n\nbody{\n  margin: auto;\n  background-color: $yellow_background;\n}\nh1,h2,h3,h4,h5,h6,a{\n  color: $font_color;\n  // height: 3px;\n}\n\n// *******  Navigation Bar starts ******\nnav.navbar, footer {\n  background-color:$navbar_background_color;\n  -webkit-border-radius: 0;\n  -moz-border-radius: 0;\n}\n\n.navbar-nav>li{\n  &>a{\n    line-height: 40px;\n    font-size: 18px;\n    -webkit-transition: 0.6s; /* Safari */\n    transition: 0.6s;\n    &:hover, &:focus{\n      background-color: #252935;\n      color: $yellow_background;\n    }\n  }\n}\n\n// *******  Navigation Bar ends ******\n"
+	],
+	"mappings": ";AAKA,AAAA,IAAI,CAAA;EACF,MAAM,EAAE,IAAK;EACb,gBAAgB,EAPE,OAAO,GAQ1B;;;AACD,AAAA,EAAE,EAAC,AAAA,EAAE,EAAC,AAAA,EAAE,EAAC,AAAA,EAAE,EAAC,AAAA,EAAE,EAAC,AAAA,EAAE,EAAC,AAAA,CAAC,CAAA;EACjB,KAAK,EARM,OAAO,GAUnB;;;AAGD,AAAG,GAAA,AAAA,OAAO,EAAE,AAAA,MAAM,CAAC;EACjB,gBAAgB,EAbQ,OAAO;EAc/B,qBAAqB,EAAE,CAAE;EACzB,kBAAkB,EAAE,CAAE,GACvB;;;AAED,AACI,WADO,GAAC,EAAE,GACV,CAAC,CAAA;EACD,WAAW,EAAE,IAAK;EAClB,SAAS,EAAE,IAAK;EAChB,kBAAkB,EAAE,IAAK;EAAE,YAAY;EACvC,UAAU,EAAE,IAAK,GAKlB;;EAVH,AACI,WADO,GAAC,EAAE,GACV,CAAC,AAKA,MAAM,EANX,AACI,WADO,GAAC,EAAE,GACV,CAAC,AAKS,MAAM,CAAA;IACd,gBAAgB,EAAE,OAAQ;IAC1B,KAAK,EA7BS,OAAO,GA8BtB",
+	"names": []
+}
