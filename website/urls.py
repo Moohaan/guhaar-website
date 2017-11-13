@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^contactus/', ContactUs.as_view(), name='contactus_view'),
     url(r'^aboutus/', include('aboutus.urls')),
     url(r'^stories/', views.stories, name = 'stories_view'),
-    url(r'^/', include('home.urls')),
+    url(r'^', include('home.urls')),
 ]
 
 if settings.DEBUG:
