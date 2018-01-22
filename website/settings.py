@@ -28,7 +28,7 @@ SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 DEBUG = True
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com', '127.0.0.1:8000', '127.0.0.1:5000']
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mojjominion@gmail.com'
 EMAIL_HOST_PASSWORD = 'm21908308v'
@@ -91,17 +91,17 @@ WSGI_APPLICATION = 'website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'mohan',
-#         'USER': 'mohan',
-#         'PASSWORD': 'root',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-DATABASES = { 'default': dj_database_url.config() }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mohan',
+        'USER': 'mohan',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+# DATABASES = { 'default': dj_database_url.config() }
 
 
 # Password validation
