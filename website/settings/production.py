@@ -14,7 +14,7 @@ import os
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -26,7 +26,7 @@ SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 DEBUG = False
 # DEBUG = True
 
-ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com', 'http://0.0.0.0:5000/']
+ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com', '']
 # ALLOWED_HOSTS = []
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mojjominion@gmail.com'
