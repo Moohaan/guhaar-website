@@ -8,3 +8,4 @@ DEBUG = False
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com', '']
 
 DATABASES = { 'default': dj_database_url.config() }
+django_heroku.settings(locals())
