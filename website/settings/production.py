@@ -2,8 +2,8 @@ from website.settings.base import *
 
 import dj_database_url
 
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
 MIDDLEWARE = [
