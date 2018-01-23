@@ -1,0 +1,1 @@
+.stories_container>:first-child{display:flex;min-height:40vh;flex-direction:column;justify-content:center}.stories_container .story{display:flex;flex-direction:row;background-color:#fff;border-radius:10px;margin:20px 0}.stories_container .story>:last-child{margin-left:60px}
