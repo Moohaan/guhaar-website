@@ -7,68 +7,54 @@
   {# <link rel="stylesheet" href="{% static '/css/team.min.css'%}">#}
   <script src="{% static '/js/project.js'%}"></script>
     <body>
-      <div class="mask">
-        <div class="projects_container container text-center">
-          <div class="projects text-left">
-            <div class="text-center">
-              <h1>Our Projects</h1>
-              <p>$yellow_background: #FFF800;
-              $white_background: #FFF;
-              $font_color: #CC5466;
-              $navbar_background_color: #252935; $yellow_background: #FFF800;
-              $white_background: #FFF;
-              $font_color: #CC5466;
-              $navbar_background_color: #252935;$yellow_background: #FFF800;
-              $white_background: #FFF;
-              $font_color: #CC5466;
-              $navbar_background_color: #252935;$yellow_background: #FFF800;
-              $white_background: #FFF;
-              $font_color: #CC5466;
-              $navbar_background_color: #252935;</p>
-            </div>
+      <div class="projects_container container text-center">
+        <div class="text-center">
+          <h1>Our Projects</h1>
+          <p>Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
+The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness.</p>
+          </div>
+        <div class="projects">
             {% for project in projects %}
-             {% csrf_token %}
+            {% csrf_token %}
             <div class="project text-center" id ="{{ project.pk }}">
               <div>
-                  <img src="{{ project.project_img.url }}" alt="{{project.project_title}}">
+                <img src="{{ project.image.url }}" alt="{{project.title}}">
               </div>
               <div class="project_description">
-                <h3>{{ project.project_title }}</h3>
-                <p>{{ project.project_description }} </p>
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }} </p>
               </div>
             </div>
             {% endfor %}
-
-          </div>
-        </div>
-        <div class="modal container text-left">
-          <div class="close_modal">
-            <span>X</span>
-          </div>
-          <div>
-            <div class="modal_details">
-              {# {% load static %}#}
-              <!--<img src="{%static 'images/guhaar.jpg'%}" width="300px">-->
+            <div class="modal text-left">
+              <div class="close_modal">
+                <span>Close</span>
+              </div>
               <div>
-                <img src = "" width="300px" height="300px">
+                <div class="modal_details">
+                  {# {% load static %}#}
+                  <!--<img src="{%static 'images/guhaar.jpg'%}" width="300px">-->
+                  <div>
+                    <img src = "" width="300px" height="300px">
+                  </div>
+                  <div class="">
+                    <h2>Project name</h2>
+                    {# <span>project short_descriptimodal_membermodal_memberon</span>#}
+                    <p>descripmod</p>
+                  </div>
+                </div>
               </div>
-              <div class="">
-                <h2>Project name</h2>
-                {# <span>project short_descriptimodal_membermodal_memberon</span>#}
-                <p>descripmod</p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div>
-              <!-- put some links for videos and interviews TODO-->
-              <div class="project_related_content">
+              <div>
+                <div>
+                  <!-- put some links for videos and interviews TODO-->
+                  <div class="project_related_content">
 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </body>
   {% endblock body %}
   {% load static %}

@@ -3,8 +3,11 @@
   {% extends "base.html" %}
   {% block body %}
   {% load static %}
-  <div class="mask">
-
+  <div class="container">
+    <div class="text-center welcome">
+      <h1>Guhaar Welcomes You</h1>
+      <p>A media platform for issues getting less attention</p>
+    </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -16,15 +19,18 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <img src="{% static 'images/guhaar.jpg'%}" alt="images1" style="width:100vw;height:90vh;">
+          <!--<div>
+            <p>Some lines to descibe very shortly what guhaar does</p>
+          </div>-->
+          <img src="{% static 'images/guhaar.jpg'%}" alt="images1">
         </div>
 
         <div class="item">
-          <img src="{% static 'images/favicon.ico'%}" alt="images2" style="width:100vw;height:90vh;">
+          <img src="{% static 'images/favicon.ico'%}" alt="images2">
         </div>
 
         <div class="item">
-          <img src="{% static 'images/guhaar.jpg'%}" alt="images3" style="width:100vw;height:90vh;">
+          <img src="{% static 'images/guhaar.jpg'%}" alt="images3">
         </div>
       </div>
       <!-- Left and right controls -->
@@ -37,31 +43,33 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+</div>
 
-<!--  <div class="container">
-    <section class="section_with_projects">
-      <div class="container-fluid text-center">
-       {% for project in projects %}
-         <div class="project_thumb">
-           <img src="{{ project.project_img.url }}" alt="project_thumb">
-         </div>
-         <div class="project_description">
-             <h3>{{ project.project_title }}</h3>
-           <p>{{ project.project_description }} </p>
-         </div>
-       {% endfor %}
 
-       {% for video in videos %}
-       <div class="video_thumb">
-         <img src="{{ project.project_img.url}} " alt="Video_thumb">
+<div class="container">
+  <section class="section_with_projects">
+    <!--{% for project in projects %}
+    <div class="text-center">
+       <div class="project_thumb">
+         <img src="{{ project.project_img.url }}" alt="project_thumb">
        </div>
-       <div class="Video_description">
-           <h3>{{ Video.project_title }}</h3>
-         <p>{{ Video.project_description }} </p>
+       <div class="project_description">
+           <h3>{{ project.project_title }}</h3>
+         <p>{{ project.project_description }} </p>
        </div>
-       {% endfor %}
-      </div>
-     </section>
-  </div>-->
+     </div>
+     {% endfor %}-->
+
+     <!--{% for video in videos %}
+     <div class="video_thumb">
+       <img src="{{ project.project_img.url}} " alt="Video_thumb">
+     </div>
+     <div class="Video_description">
+         <h3>{{ Video.project_title }}</h3>
+       <p>{{ Video.project_description }} </p>
+     </div>
+     {% endfor %}-->
+   </section>
+</div>
  {% endblock body %}
  </html>

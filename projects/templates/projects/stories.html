@@ -9,26 +9,26 @@
   <script src="{% static '/js/project.js'%}"></script>
 
     <body>
-
-      <div class="mask">
         <div class="stories_container text-center container">
           <div>
             <h1>Our Stories</h1>
-            <p> description </p>
+            <p> Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
+The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness. </p>
           </div>
-          <div class="stories text-left">
+          <div class="stories">
             {% for story in stories %}
               <div id="{{ story.pk }}" class="story" url="{{ story.image.url }}">
                 <div>
-                  <img src="{{ story.story_img.url }}" alt="{{ story.story_title }}" width="400px">
+                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="400px">
                 </div>
-                <div>
-                  <h2><b>{{ story.story_title }}</b></h2><span>{{story.date_started}}</span>
-                  <p>{{ story.story_description |slice:":500" }}</p>
+                <div class="text-left">
+                  <h2><b>{{ story.title }}</b></h2><span>{{story.date_started}}</span>
+                  <p>{{ story.description |slice:":500" }}</p>
                   {# <p class="hide">{{ member.description }}</p>#}
                 </div>
               </div>
             {% endfor %}
+            <input type="button" value="More+" name="more_stories">
           </div>
         </div>
 
@@ -50,8 +50,6 @@
             </div>
           </div>
         </div>
-
-      </div>
     </body>
   {% endblock body %}
 </html>

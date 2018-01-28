@@ -49,7 +49,7 @@ class ContactUs(TemplateView):
                 form_message,
                 from_email,
                 to_email,
-                fail_silently=True,
+                fail_silently=False,
             )
         # return htt
         form = ContactusForm()

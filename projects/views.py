@@ -14,9 +14,9 @@ def projectDetails(request, project_id):
     # if request.is_ajax():
     # id = request.GET.get('id')
     project = Project.objects.filter(pk = project_id)
-    videos  = Video.objects.filter(video_from_project = project)[:3]
-    stories = Story.objects.filter(story_from_project= project)
-    interviews = Interview.objects.filter(interview_from_project = project)
+    videos  = Video.objects.filter(project = project)[:3]
+    stories = Story.objects.filter(project= project)
+    interviews = Interview.objects.filter(project = project)
     # serialize all the data
     project =  serializers.serialize("json", project)
     videos =  serializers.serialize("json", videos)

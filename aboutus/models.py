@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 class Team(models.Model):
     number_of_people = models.IntegerField()
-    team_short_description = models.CharField(max_length=100,default=None)
-    team_description = models.TextField()
+    short_description = models.CharField(max_length=100,default=None)
+    description = models.TextField()
 
 class Member(models.Model):
     name = models.CharField(max_length=100)

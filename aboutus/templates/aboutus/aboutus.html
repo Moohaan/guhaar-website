@@ -9,20 +9,21 @@
   <script src="{% static '/js/project.js'%}"></script>
 
     <body>
-      <div class="mask">
-        <div class="container text-center about_team">
+      <div class="container team_body">
+        <div class="text-center about_team">
           <h1>Who Are We</h1>
           {% for team in team %}
-          <p>{{team.team_description}}</p>
+          <p>{{team.description | slice:":755"}}<a href=""> read more</a></p>
         </div>
-        <div class="team_container text-center container">
+        <div class="team_container text-center">
           <div>
             <h1>Our Team</h1>
-            <p>{{team.team_short_description}}</p>
+            <p>{{team.short_description}}</p>
           </div>
           {% endfor %}
-          <div class="team">
-            {% for member in members %}
+          <div>
+            <div class="team">
+              {% for member in members %}
               <div id="{{ member.pk }}" class="member" url="{{ member.image.url }}">
                 <div>
                   <img src="{{ member.image.url }}" alt="{{ member.name }}">
@@ -33,29 +34,29 @@
                   <p class="hide">{{ member.description }}</p>
                 </div>
               </div>
-            {% endfor %}
-          </div>
-        </div>
-
-        <div class="modal container text-left">
-          <div class="close_modal">
-            <span>Close</span>
-          </div>
-          <div class="modal_details">
-            <div>
-              <!--{% load static %}-->
-              <img width="300px">
+              {% endfor %}
             </div>
-            <div class="member_details">
-              <div>
-                <h2>Name</h2>
-                <p>short_descriptimodal_membermodal_memberon</p>
-                <p>descripmodal_membe rmodal_mem descripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_mem</p>
+
+            <div class="modal text-left">
+              <div class="close_modal">
+                <span>Close</span>
+              </div>
+              <div class="modal_details">
+                <div>
+                  <!--{% load static %}-->
+                  <img width="300px">
+                  <h2>Name</h2>
+                  <p>short_descriptimodal_membermodal_memberon</p>
+                </div>
+                <div class="member_details">
+                  <div>
+                    <p>descripmodal_membe rmodal_mem descripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_mem</p>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>
         </div>
-        </div>
-
       </div>
     </body>
   {% endblock body %}
