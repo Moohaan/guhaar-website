@@ -27,11 +27,12 @@
               <div id="{{ member.pk }}" class="member" url="{{ member.image.url }}">
                 <div>
                   <img src="{{ member.image.url }}" alt="{{ member.name }}">
-                </div>
-                <div>
-                  <h4><b>{{ member.name }}</b></h4>
-                  <p>{{ member.short_description }}</p>
-                  <p class="hide">{{ member.description }}</p>
+                  <div class="name_header">
+                    <div>
+                      <h4><b>{{ member.name }}</b></h4>
+                      <p>{{ member.short_description }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               {% endfor %}

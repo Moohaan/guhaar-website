@@ -2,8 +2,8 @@ venv
 *.pyc
 staticfiles
 .env
-
-website/settings/local.py
+website/old_settings.py
+website/settings/locals.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

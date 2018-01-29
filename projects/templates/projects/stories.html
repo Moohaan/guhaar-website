@@ -19,7 +19,7 @@ The aim is to bring in light many more important issues in future. To make it su
             {% for story in stories %}
               <div id="{{ story.pk }}" class="story" url="{{ story.image.url }}">
                 <div>
-                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="400px">
+                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">
                 </div>
                 <div class="text-left">
                   <h2><b>{{ story.title }}</b></h2><span>{{story.date_started}}</span>

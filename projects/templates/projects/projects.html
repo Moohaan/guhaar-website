@@ -17,13 +17,11 @@ The aim is to bring in light many more important issues in future. To make it su
             {% for project in projects %}
             {% csrf_token %}
             <div class="project text-center" id ="{{ project.pk }}">
-              <div>
                 <img src="{{ project.image.url }}" alt="{{project.title}}">
-              </div>
-              <div class="project_description">
-                <h3>{{ project.title }}</h3>
+                <h4>{{ project.title }}</h4>
+              <!--<div class="project_description">
                 <p>{{ project.description }} </p>
-              </div>
+              </div>-->
             </div>
             {% endfor %}
             <div class="modal text-left">
