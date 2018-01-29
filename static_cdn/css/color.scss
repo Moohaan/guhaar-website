@@ -1,4 +1,10 @@
-$yellow_background: #FFF;
+// @import url('https://fonts.googleapis.com/css?family=Alegreya|Roboto:500');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Merriweather:400,400i,700&subset=latin-ext');
+    // font-family: 'Lato', sans-serif;
+    //
+    // font-family: 'Merriweather', serif;
+
+$yellow_background: 0.5*grey;
 $white: #FFF;
 // $font_color: #CC5466
 $font_color: grey;

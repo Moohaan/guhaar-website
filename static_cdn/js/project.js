@@ -1,6 +1,7 @@
 // console.log(0);
 $( document ).ready(function() {
   // console.log(0);
+  var navBarMenuSelector = $(".navbar .menu");
   var projectSelector = $( ".project" );
   var memberSelector = $( ".member" );
   var modalSelector = $(".modal");
@@ -8,6 +9,17 @@ $( document ).ready(function() {
 
   // Hide and Show project modal ***STARTS***
   var hideTime = 200;
+  var scrollTime = 500;
+
+  // Navbar clicks STARTS
+  // navBarMenuSelector.on('click', 'li', function(event) {
+  //   // event.preventDefault();
+  //   navBarMenuSelector.find('.active').removeClass('active');
+  //   $(this).addClass('active');
+  // });
+  // Navbar clicks ENDS
+
+
 
 // project click handling **STARTS**
   projectSelector.on( "click", function( event ) {
@@ -32,13 +44,13 @@ $( document ).ready(function() {
                   // stories = JSON.parse(json.stories)[0].fields;
                   // interviews = JSON.parse(json.interviews)[0].fields;
                   videos = JSON.parse(json.videos)[i].fields;
-                  html+='<iframe id="player" type="text/html" width="300px" height="220px" src="'+videos.video_youtube_url+'" frameborder="0"></iframe>';
+                  html+='<iframe id="player" type="text/html" width="300px" height="220px" src="'+videos.url+'" frameborder="0"></iframe>';
                 }
                 modalSelector.find('.project_related_content').append(html);
               }
-              modalSelector.find('img').attr('src','/media/'+ project.project_img);
-              modalSelector.find('h2').html(project.project_title);
-              modalSelector.find('.project_details>p').html(project.project_description);
+              modalSelector.find('img').attr('src','/media/'+ project.image);
+              modalSelector.find('h2').html(project.title);
+              modalSelector.find('.project_details>p').html(project.description);
            },
            error: function (data) {
              console.log(data);
@@ -46,6 +58,9 @@ $( document ).ready(function() {
            }
        });
       $('body').addClass('stop-scrolling');
+      $('html, body').animate({
+        scrollTop: $(projectSelector.parent('.projects')).offset().top-120
+      }, scrollTime);
   });
   // project click handling ** ENDS **
 
@@ -73,6 +88,9 @@ $( document ).ready(function() {
              alert('Sorry, try again.');
            }
        });
+       $('html, body').animate({
+         scrollTop: $(memberSelector.parent('.team')).offset().top-120
+       }, scrollTime);
       // console.log(pk);
       // $(document).scroll().disable();
   });

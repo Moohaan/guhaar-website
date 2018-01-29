@@ -1,39 +1,84 @@
 @import "color.scss";
 
-html {
-  min-height: 100vh;
-  position: relative;
-}
 body{
-  margin: auto;
-  min-height: 100vh;
-  background-color: $white;
-  // background: url('../images/guhaar.jpg') fixed no-repeat;
-  background-size:cover;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    p{
+      // font-family: 'Alegreya', serif;
+      // text-transform: uppercase;
+      // font-weight: 900;
+      font-size: 14px;
+      max-width: 760px;
+      margin: auto;
+      // padding: 0 20px;
+    }
+    ul{
+      padding: 0;
+      text-align: left;
+    }
+    li{
+      list-style-type: none;
+    }
 }
-.mask {
-  // background-color: rgba(37, 41, 53, 0.8);
-  min-height: 100vh;
-  // padding: 0 0 20px 0;
+.container::before, .container::after{
+  content: unset;
+}
+
+.welcome{
+  margin-top: 130px;
+  h1{
+    font-size: 60px;
+  }
+  p{
+    // font-size: 16px;
+    letter-spacing: 2px;
+    // max-width: 600px;
+    // margin: auto;
+  }
+}
+#myCarousel{
+  max-width: 1000px;
+  margin: 50px auto 0;
+  img{
+    min-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+ .carousel-control.left{
+   left: -5em;
+ }
+ .carousel-control.right{
+   right: -5em;
+ }
 }
 
 a{
   cursor: pointer;
 }
+
 h1,h2,h3,h4,h5,h6,a,p,span{
     color: $font_color;
     font-weight: bolder;
 }
+// h1,h2,h3,h4,h5,h6{
+//   font-family: 'Alegreya', sans-serif;
+// }
 form {
   width: 50%;
   margin: auto;
-  padding: 50px 0;
+  // padding: 50px 0;
+  margin: 130px auto 20px;
+  padding: 10px 25px 50px;
+  box-shadow: 0 0 10px;
+  p{
+    margin: 20px 0;
+  }
 }
 
 // *******  Navigation Bar starts ******
-nav.navbar, footer {
+footer {
   margin-bottom: 0;
-  background-color:$navbar_background_color;
+  // background-color:$navbar_background_color;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   // h1,h2,h3,h4,h5,h6,a,p,span{
@@ -45,30 +90,49 @@ nav.navbar, footer {
   &>a{
     line-height: 40px;
     font-size: 18px;
-    -webkit-transition: 0.6s;
-    transition: 0.6s;
+    // -webkit-transition: 0.6s;
+    // transition: 0.6s;
     &:hover, &:focus{
       background-color: $navbar_background_color;
-      color: $yellow_background;
+      // color: $yellow_background;
+      border-bottom: solid #e7e7e7 2px;
     }
   }
 }
 
 // *******  Navigation Bar ends ******
-
+.navbar {
+  margin-bottom: 0;
+  .logo{
+    display: inline-block;
+    padding: 24px 15px 0;
+    .navbar-brand{
+      padding: 15px;
+    }
+    }
+  img{
+    display: inline;
+    margin-right: 20px;
+  }
+  li{
+    a{
+      font-size: 14px;
+      display: inline;
+      padding: 12px 15px;
+    }
+  }
+}
 // *******  Modal starts ******
 
 div.modal {
-	// position: relative;
-	display: flex;
+	position: absolute;
+	// display: flex;
+  z-index: 10;
 	display: none;
-	flex-direction: row;
-  margin: 0px auto;
-	// border: 1px solid blue;
-	width: 90%;
-	// height: 80vh;
-	background-color: $navbar_background_color;
-	border-radius: 10px;
+  overflow: auto;
+	background-color: yellow;
+  box-shadow: 0 0 20px #aaaaaa;
+	// border-radius: 10px;
 
 	&>div{
 		padding: 30px 30px;
@@ -93,8 +157,18 @@ div.modal {
 	}
   .modal_details{
     display: flex;
+    flex-wrap: wrap;
+    // text-align: center;
+    p{
+      padding: 0;
+    }
+    &>:first-child{
+      margin-right: 80px;
+      flex: 0;
+    }
     &>:last-child{
-      margin-left: 40px;
+      padding-right: 60px;
+      flex: 1;
     }
   }
   .project_related_content{
@@ -116,8 +190,43 @@ div.modal {
 // *******  Footer starts ******
 
 footer{
-  margin: 0;
-  padding: 20px 0;
+  &>div{
+    // display: flex;
+    margin: 30px 10px;
+    &>div{
+      padding: 0 20px;
+      // width: 200px;
+      min-width: fit-content;
+      min-width: -webkit-fit-content;
+      min-width: -moz-fit-content;
+    /*  &:first-of-type{
+      }*/
+      p{
+        font-size: 12px;
+        max-width: 300px;
+        text-align: left;
+      }
+      ul>h5{
+        text-align: left;
+      }
+      li{
+        font-size: 12px;
+      }
+    }
+  }
+  input{
+    margin-top: 5px;
+  }
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-template-rows: max-content;
+  grid-gap: 40px;
+  // padding: 20px 0;
+  border-top: solid 2px #e7e7e7;
+  .subscribe{
+    grid-column: 2fr;
+  }
 }
 
 
