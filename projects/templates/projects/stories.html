@@ -15,20 +15,37 @@
             <p> Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
 The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness. </p>
           </div>
-          <div class="stories">
-            {% for story in stories %}
+          <div>
+            <div class="stories">
+              {% for story in stories %}
               <div id="{{ story.pk }}" class="story" url="{{ story.image.url }}">
-                <div>
-                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">
-                </div>
                 <div class="text-left">
                   <h2><b>{{ story.title }}</b></h2><span>{{story.date_started}}</span>
                   <p>{{ story.description |slice:":500" }}</p>
                   {# <p class="hide">{{ member.description }}</p>#}
                 </div>
+                <div>
+                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">
+                </div>
               </div>
-            {% endfor %}
-            <input type="button" value="More+" name="more_stories">
+              {% endfor %}
+              <input type="button" value="More..." name="more_stories">
+            </div>
+            <div class="recent_feed text-left">
+              <h4>Recent Feeds</h4>
+              <div>
+                <h4>first article</h4>
+                <p>first content first content first content first content</p>
+              </div>
+              <div>
+                <h4>first article</h4>
+                <p>first content first content first content first content  </p>
+              </div>
+              <div>
+                <h4>first article</h4>
+                <p>first content first content first content first content  </p>
+              </div>
+            </div>
           </div>
         </div>
 

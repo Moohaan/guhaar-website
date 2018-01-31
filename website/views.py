@@ -40,7 +40,7 @@ class ContactUs(TemplateView):
             form_name = form.cleaned_data.get('name')
             form_email = form.cleaned_data.get('email')
             form_message = form.cleaned_data.get('message')
-            subject = 'From Guhaar Website'
+            subject = 'Guhaar'
             html_message = "%s:%s via %s"%(form_name, form_message, form_email)
             from_email = settings.EMAIL_HOST_USER
             to_email = [from_email, 'lmohan717@gmail.com']

@@ -3,13 +3,15 @@
 body{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
+    background-color: $yellow;
+  	color: $black;
     p{
       // font-family: 'Alegreya', serif;
       // text-transform: uppercase;
       // font-weight: 900;
-      font-size: 14px;
-      max-width: 760px;
-      margin: auto;
+      // font-size: 14px;
+      // max-width: 760px;
+      // margin: auto;
       // padding: 0 20px;
     }
     ul{
@@ -44,11 +46,10 @@ body{
     max-height: 80vh;
     border-radius: 10px;
   }
- .carousel-control.left{
-   left: -5em;
- }
+ .carousel-control.left,
  .carousel-control.right{
-   right: -5em;
+  //  right: -5em;
+  border-radius: 10px;
  }
 }
 
@@ -56,8 +57,8 @@ a{
   cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6,a,p,span{
-    color: $font_color;
+h1,h2,h3,h4,h5,h6{
+    color: $red;
     font-weight: bolder;
 }
 // h1,h2,h3,h4,h5,h6{
@@ -69,38 +70,57 @@ form {
   // padding: 50px 0;
   margin: 130px auto 20px;
   padding: 10px 25px 50px;
-  box-shadow: 0 0 10px;
+  box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
   p{
     margin: 20px 0;
-  }
-}
-
-// *******  Navigation Bar starts ******
-footer {
-  margin-bottom: 0;
-  // background-color:$navbar_background_color;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  // h1,h2,h3,h4,h5,h6,a,p,span{
-  //   color: $font_color;
-  // }
-}
-
-.navbar-nav>li{
-  &>a{
-    line-height: 40px;
-    font-size: 18px;
-    // -webkit-transition: 0.6s;
-    // transition: 0.6s;
-    &:hover, &:focus{
-      background-color: $navbar_background_color;
-      // color: $yellow_background;
-      border-bottom: solid #e7e7e7 2px;
+    label{
+      color: $red;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      // text-shadow: 1px 1px 2px $black;
     }
   }
 }
+.form-control{ //input
+  background-color: $gray;
+  color: $black;
+  border: 0;
+}
 
-// *******  Navigation Bar ends ******
+// *******  Navigation Bar starts ******
+
+.navbar-default {
+    background-color: $black;
+    border-color: $red;
+    span{
+      color: $red;
+    }
+    .navbar-nav>li{
+      &>a{
+        color: $red;
+        line-height: 40px;
+        font-size: 14px;
+        // -webkit-transition: 0.6s;
+        transition: all 0.5s linear;
+        &:hover, &:focus{
+          // background-color: 0.6*$red;
+          color: $yellow_background;
+          border-bottom: solid $gray 2px;
+        }
+      }
+    }
+}
+.navbar-header{
+  position: relative;
+  >button{
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    margin: 0 15px 0;
+  }
+}
+
 .navbar {
   margin-bottom: 0;
   .logo{
@@ -122,6 +142,12 @@ footer {
     }
   }
 }
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: $gray;
+}
+
+// *******  Navigation Bar ends ******
 // *******  Modal starts ******
 
 div.modal {
@@ -131,7 +157,7 @@ div.modal {
 	display: none;
   overflow: auto;
 	background-color: yellow;
-  box-shadow: 0 0 20px #aaaaaa;
+  box-shadow: 0 0 20px $black;
 	// border-radius: 10px;
 
 	&>div{
@@ -188,30 +214,39 @@ div.modal {
 // *******  Modal Ends ******
 
 // *******  Footer starts ******
-
+footer {
+  margin-bottom: 0;
+  // background-color:$navbar_background_color;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  // h1,h2,h3,h4,h5,h6,a,p,span{
+  //   color: $font_color;
+  // }
+}
 footer{
   &>div{
     // display: flex;
     margin: 30px 10px;
-    &>div{
+    /*&>div{
       padding: 0 20px;
       // width: 200px;
       min-width: fit-content;
       min-width: -webkit-fit-content;
       min-width: -moz-fit-content;
-    /*  &:first-of-type{
-      }*/
-      p{
-        font-size: 12px;
-        max-width: 300px;
-        text-align: left;
+      &:first-of-type{
       }
-      ul>h5{
-        text-align: left;
-      }
-      li{
-        font-size: 12px;
-      }
+    }*/
+    p{
+      font-size: 12px;
+      max-width: 300px;
+      text-align: left;
+    }
+    ul>h5{
+      text-align: left;
+    }
+    li>a{
+      font-size: 12px;
+      color: $black;
     }
   }
   input{
@@ -219,13 +254,21 @@ footer{
   }
   margin-top: 100px;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
   grid-template-rows: max-content;
   grid-gap: 40px;
   // padding: 20px 0;
-  border-top: solid 2px #e7e7e7;
+  border-top: solid 2px $red;
+
+  // TODO: media query
   .subscribe{
-    grid-column: 2fr;
+    // grid-column: span 2;
+    input{
+      border: 0;
+      padding: 6px 15px;
+      background-color: $gray;
+      text-transform: capitalize;;
+    }
   }
 }
 
