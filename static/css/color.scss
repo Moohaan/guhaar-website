@@ -16,10 +16,12 @@ $red: #be2433;
 $white: #e0e6e4;
 $black: #171928;
 $gray: #a3acb1;
+$orange: #d2691e;
+$orange2: #ffa500;
 
 @mixin box-shadow-hover {
   cursor: pointer;
-  transition: all 0.5s linear;
+  transition: all 0.2s linear;
   box-shadow:0px 0px 15px $black;
   &:hover{
     box-shadow:0px 0px 5px $black;

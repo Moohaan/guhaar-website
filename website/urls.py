@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^projects/', include('projects.urls')),
     url(r'^contactus/', ContactUs.as_view(), name='contactus_view'),
     url(r'^aboutus/', include('aboutus.urls')),
+    # TODO: stories/ is use less for now
     url(r'^stories/', views.stories, name = 'stories_view'),
     url(r'^', include('home.urls')),
 ]

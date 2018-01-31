@@ -1,7 +1,9 @@
 // console.log(0);
 $( document ).ready(function() {
   // console.log(0);
-  var navBarMenuSelector = $(".navbar .menu");
+  // var scrollToStoriesSelector = $(".scroll_story");
+  // var storiesSectionSelector = $(".stories_container");
+  var projectContainerSelector = $(".projects");
   var projectSelector = $( ".project" );
   var memberSelector = $( ".member" );
   var modalSelector = $(".modal");
@@ -10,23 +12,26 @@ $( document ).ready(function() {
   // Hide and Show project modal ***STARTS***
   var hideTime = 200;
   var scrollTime = 500;
-
+  var scrollBackId = 0;
   // Navbar clicks STARTS
-  // navBarMenuSelector.on('click', 'li', function(event) {
-  //   // event.preventDefault();
-  //   navBarMenuSelector.find('.active').removeClass('active');
-  //   $(this).addClass('active');
+  // scrollToStoriesSelector.on('click', function(event) {
+  //   event.preventDefault();
+  //   console.log('hey');
+  //   $('html, body').animate({
+  //     scrollTop: $(".stories_container").offset().top
+  //   }, scrollTime);
   // });
   // Navbar clicks ENDS
 
 
 
 // project click handling **STARTS**
-  projectSelector.on( "click", function( event ) {
+  projectSelector.on( "click", '.project_details', function( event ) {
       event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
-      var id = $(this).attr('id');
+      var id = $(this).parents('.project').attr('id');
+      scrollBackId = id;
       $.ajax({
            url: "/projects/"+id+"/",
            dataType: "json",
@@ -35,22 +40,22 @@ $( document ).ready(function() {
               var json = JSON.parse(data);
               project = JSON.parse(json.project)[0].fields;
               var noOfVideos = JSON.parse(json.videos).length;
-              console.log(noOfVideos, JSON.parse(json.videos));
-              console.log(json);
+              // console.log(noOfVideos, JSON.parse(json.videos));
+              // console.log(json);
               if(noOfVideos>0){
                 // var html = '<p>Related to this project</p>';
                 var html = '';
-                for(var i =0; i<noOfVideos; i++){
+                /*for(var i =0; i<noOfVideos; i++){
                   // stories = JSON.parse(json.stories)[0].fields;
                   // interviews = JSON.parse(json.interviews)[0].fields;
                   videos = JSON.parse(json.videos)[i].fields;
                   html+='<iframe id="player" type="text/html" width="300px" height="220px" src="'+videos.url+'" frameborder="0"></iframe>';
-                }
+                }*/
                 modalSelector.find('.project_related_content').append(html);
               }
               modalSelector.find('img').attr('src','/media/'+ project.image);
               modalSelector.find('h2').html(project.title);
-              modalSelector.find('.project_details>p').html(project.description);
+              modalSelector.find('.modal_details p').html(project.description);
            },
            error: function (data) {
              console.log(data);
@@ -84,7 +89,7 @@ $( document ).ready(function() {
             console.log(member);
            },
            error: function (data) {
-             console.log(data);
+            //  console.log(data);
              alert('Sorry, try again.');
            }
        });
@@ -100,8 +105,16 @@ $( document ).ready(function() {
       event.preventDefault();
       modalSelector.find('.project_related_content').html('');
       $(this).parent().slideUp(hideTime);
+      $('html, body').animate({
+        scrollTop: $(".project#"+scrollBackId).offset().top
+      }, scrollTime);
       // console.log('hfecd');
   });
+
+  // $('body').not(projectSelector).on('click',function(event){
+  //   event.preventDefault();
+  //   closeModalSelector.trigger('click');
+  // });
 
 // Hide and Show project modal  ***ENDS***
 });

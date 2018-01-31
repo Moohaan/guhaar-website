@@ -5,6 +5,7 @@ body{
     font-weight: 900;
     background-color: $yellow;
   	color: $black;
+    font-size: 16px;
     p{
       // font-family: 'Alegreya', serif;
       // text-transform: uppercase;
@@ -30,6 +31,7 @@ body{
   margin-top: 130px;
   h1{
     font-size: 60px;
+    text-shadow: 2px 2px 4px $black;
   }
   p{
     // font-size: 16px;
@@ -64,11 +66,15 @@ h1,h2,h3,h4,h5,h6{
 // h1,h2,h3,h4,h5,h6{
 //   font-family: 'Alegreya', sans-serif;
 // }
+.contact_us_form{
+  margin-top: 130px;
+  // margin-bottom: 20px;
+}
 form {
   width: 50%;
   margin: auto;
   // padding: 50px 0;
-  margin: 130px auto 20px;
+  margin: 40px auto;
   padding: 10px 25px 50px;
   box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
   p{
@@ -181,29 +187,6 @@ div.modal {
 			}*/
 		}
 	}
-  .modal_details{
-    display: flex;
-    flex-wrap: wrap;
-    // text-align: center;
-    p{
-      padding: 0;
-    }
-    &>:first-child{
-      margin-right: 80px;
-      flex: 0;
-    }
-    &>:last-child{
-      padding-right: 60px;
-      flex: 1;
-    }
-  }
-  .project_related_content{
-    text-align: left;
-    display: block;
-    iframe:nth-child(2){
-      margin: 0 60px;
-    }
-  }
 }
 
 @media (max-width: 1199px) {

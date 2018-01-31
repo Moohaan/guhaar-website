@@ -9,22 +9,39 @@
     <body>
       <div class="projects_container container text-center">
         <div class="text-center">
-          <h1>Our Projects</h1>
+          <h1>Projects</h1>
           <p>Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
 The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness.</p>
           </div>
         <div class="projects">
             {% for project in projects %}
             {% csrf_token %}
-            <div class="project text-center" id ="{{ project.pk }}">
+            <!--<div class="project text-center" id ="{{ project.pk }}">
                 <img src="{{ project.image.url }}" alt="{{project.title}}">
                 <h4>{{ project.title }}</h4>
-              <!--<div class="project_description">
-                <p>{{ project.description }} </p>
-              </div>-->
+            </div>-->
+            <div class="project" id ="{{ project.pk }}">
+              <img src="{{ project.image.url }}" alt="{{project.title}}">
+              <div class="project_details">
+                <h4>{{ project.title }}</h4>
+                <span>{{ project.date_started }}</span>
+                <p>{{ project.description | slice:":500" }}</p>
+              </div>
+              <h5>Related to this project</h5>
+              <div class="project_related_content">
+                <div id="stories">
+                  <h1>Articles</h1>
+                </div>
+                <div id="interviews">
+                  <h1>interviews</h1>
+                </div>
+                <div id="videos">
+                  <h1>videos</h1>
+                </div>
+              </div>
             </div>
             {% endfor %}
-            <div class="modal text-left">
+            <div class="modal container text-center">
               <div class="close_modal">
                 <span>Close</span>
               </div>
@@ -33,20 +50,12 @@ The aim is to bring in light many more important issues in future. To make it su
                   {# {% load static %}#}
                   <!--<img src="{%static 'images/guhaar.jpg'%}" width="300px">-->
                   <div>
-                    <img src = "" width="300px" height="300px">
+                    <img src = "">
                   </div>
                   <div class="">
                     <h2>Project name</h2>
                     {# <span>project short_descriptimodal_membermodal_memberon</span>#}
                     <p>descripmod</p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <!-- put some links for videos and interviews TODO-->
-                  <div class="project_related_content">
-
                   </div>
                 </div>
               </div>
