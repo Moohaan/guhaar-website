@@ -53,7 +53,7 @@ $( document ).ready(function() {
               //   }*/
               //   modalSelector.find('.project_related_content').append(html);
               // }
-              modalSelector.find('img').attr('src','/media/'+ project.image);
+              modalSelector.find('img').attr('src','/media/'+ project.image.url);
               modalSelector.find('h2').html(project.title);
               modalSelector.find('.modal_details p').html(project.description);
            },
