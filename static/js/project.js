@@ -41,7 +41,7 @@ $( document ).ready(function() {
               project = JSON.parse(json.project)[0].fields;
               // var noOfVideos = JSON.parse(json.videos).length;
               // console.log(noOfVideos, JSON.parse(json.videos));
-              // console.log(json);
+              console.log(project);
               // if(noOfVideos>0){
               //   // var html = '<p>Related to this project</p>';
               //   var html = '';
