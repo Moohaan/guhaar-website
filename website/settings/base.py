@@ -1,6 +1,6 @@
 import os
 import cloudinary
-# import pyuploadcare
+import pyuploadcare
 # import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -19,10 +19,10 @@ cloudinary.config(
   api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
 )
 
-# UPLOADCARE = {
-#     'pub_key': 'd054d38a036a4221f387',
-#     'secret': 'e106e526a2b3c02586af ',
-# }
+UPLOADCARE = {
+    'pub_key': 'd054d38a036a4221f387',
+    'secret': 'e106e526a2b3c02586af ',
+}
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 DEBUG = True
