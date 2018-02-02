@@ -12,7 +12,7 @@ $( document ).ready(function() {
   // Hide and Show project modal ***STARTS***
   var hideTime = 200;
   var scrollTime = 500;
-  // var scrollBackId = 0;
+  var scrollBackId = 0;
   // Navbar clicks STARTS
   // scrollToStoriesSelector.on('click', function(event) {
   //   event.preventDefault();
@@ -31,7 +31,7 @@ $( document ).ready(function() {
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
       var id = $(this).parents('.project').attr('id');
-      // scrollBackId = id;
+      scrollBackId = id;
       $.ajax({
            url: "/projects/"+id+"/",
            dataType: "json",

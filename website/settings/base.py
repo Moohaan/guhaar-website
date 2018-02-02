@@ -1,4 +1,8 @@
 import os
+# import cloudinary
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -37,7 +41,8 @@ INSTALLED_APPS = [
     'projects',
     'home',
     'aboutus',
-    #'rest_framework',
+    'cloudinary',
+    # 'pyuploadcare',
 ]
 
 MIDDLEWARE = [
@@ -132,6 +137,21 @@ USE_TZ = True
 # TEMPLATE_DIRS = (
 #     os.path.join(BASE_DIR,'templates/'),
 # )
+
+# # Cloudinary settings for Django. Add to your settings file.
+# CLOUDINARY = {
+#   'cloud_name': 'guhaar',
+#   'api_key': '896979177588687',
+#   'api_secret': '3ZaITYQmAnz41Qxkl0HzQkTKXeg',
+# }
+#
+
+# # Cloudinary settings using python code. Run before pycloudinary is used.
+cloudinary.config(
+  cloud_name = 'guhaar',
+  api_key = '896979177588687',
+  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
+)
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
