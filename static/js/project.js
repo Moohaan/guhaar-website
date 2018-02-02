@@ -36,8 +36,8 @@ $( document ).ready(function() {
            url: "/projects/"+id+"/",
            dataType: "json",
            success: function(data){
-             alert('worked!!');
-            console.log("hey",data);
+            //  alert('worked!!');
+            // console.log("hey",data);
               var json = JSON.parse(data);
               project = JSON.parse(json.project)[0].fields;
               // var noOfVideos = JSON.parse(json.videos).length;
@@ -53,7 +53,7 @@ $( document ).ready(function() {
               //   }*/
               //   modalSelector.find('.project_related_content').append(html);
               // }
-              modalSelector.find('img').attr('src', project.image.url);
+              modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+project.image);
               modalSelector.find('h2').html(project.title);
               modalSelector.find('.modal_details p').html(project.description);
            },
