@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Team(models.Model):
@@ -8,7 +9,7 @@ class Team(models.Model):
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/members',default=None)
+    image = CloudinaryField('image')
     short_description = models.CharField(max_length=100)
     description = models.TextField()
 

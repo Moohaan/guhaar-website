@@ -22,19 +22,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 #     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 # ]
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 DATABASES = { 'default': dj_database_url.config() }
 
-# # Cloudinary settings for Django. Add to your settings file.
-# CLOUDINARY = {
-#   'cloud_name': 'guhaar',
-#   'api_key': '896979177588687',
-#   'api_secret': '3ZaITYQmAnz41Qxkl0HzQkTKXeg',
-# }
-#
 
 # # Cloudinary settings using python code. Run before pycloudinary is used.
 cloudinary.config(
-  cloud_name = 'guhaar',
-  api_key = '896979177588687',
-  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
+  cloud_name = os.environ.get('cloud_name'),
+  api_key = os.environ.get('api_key'),
+  api_secret = os.environ.get(api_secret)
 )

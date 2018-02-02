@@ -74,8 +74,8 @@ $( document ).ready(function() {
       event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
-      var url = $(this).attr('url');
-      modalSelector.find('img').attr('src',url);
+      // var url = $(this).attr('url');
+      // modalSelector.find('img').attr('src',url);
       var id = $(this).attr('id');
       $.ajax({
            url: "/aboutus/"+id+"/",
@@ -83,10 +83,11 @@ $( document ).ready(function() {
            success: function(data){
             //  alert('worked!!');
             member = JSON.parse(data)[0].fields;
+            modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+member.image);
             modalSelector.find('h2').html(member.name);
             modalSelector.find('p').html(member.short_description);
             modalSelector.find('.member_details>p').html(member.description);
-            console.log(member);
+            // console.log(member);
            },
            error: function (data) {
             //  console.log(data);
