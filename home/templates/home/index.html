@@ -65,7 +65,7 @@ The aim is to bring in light many more important issues in future. To make it su
         <div>
           {# <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">#}
           {# {% cloudinary story.image width=300, height=200, crop="fill" %}#}
-          {% cloudinary story.image width=300 %}
+          {% cloudinary story.image width=300 crop='fill'%}
         </div>
       </div>
       {% endfor %}

@@ -27,7 +27,7 @@
               <div id="{{ member.pk }}" class="member" url="{{ member.image.url }}">
                 <div>
                   {# <img src="{{ member.image.url }}" alt="{{ member.name }}">#}
-                  {% cloudinary member.image width=270 height=300 crop=fill%}
+                  {% cloudinary member.image width=270 height=300 crop='fill'%}
                   <div class="name_header">
                     <div>
                       <h4><b>{{ member.name }}</b></h4>
