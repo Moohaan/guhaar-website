@@ -10,6 +10,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
+
+cloudinary.config(
+  cloud_name = 'guhaar',
+  api_key = '896979177588687',
+  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
+)
 
 # UPLOADCARE = {
 #     'pub_key': 'd054d38a036a4221f387',
