@@ -12,9 +12,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
-# SECRET_KEY = os.environ.get('SECRET_KEY')
 
+cloudinary.config(
+  cloud_name = 'guhaar',
+  api_key = '896979177588687',
+  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
+)
 
+UPLOADCARE = {
+    'pub_key': 'd054d38a036a4221f387',
+    'secret': 'e106e526a2b3c02586af ',
+}
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 DEBUG = True
@@ -137,21 +145,6 @@ USE_TZ = True
 #     os.path.join(BASE_DIR,'templates/'),
 # )
 
-UPLOADCARE = {
-    'pub_key': 'd054d38a036a4221f387',
-    'secret': 'e106e526a2b3c02586af ',
-}
-
-cloudinary.config(
-  cloud_name = 'guhaar',
-  api_key = '896979177588687',
-  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
-)
-# CLOUDINARY = {
-#   'cloud_name': 'guhaar',
-#   'api_key': '896979177588687',
-#   'api_secret': '3ZaITYQmAnz41Qxkl0HzQkTKXeg',
-# }
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/"),
