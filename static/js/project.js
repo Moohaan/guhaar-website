@@ -36,12 +36,12 @@ $( document ).ready(function() {
            url: "/projects/"+id+"/",
            dataType: "json",
            success: function(data){
-            //  alert('worked!!');
+             alert('worked!!');
+            console.log("hey",data);
               var json = JSON.parse(data);
               project = JSON.parse(json.project)[0].fields;
               // var noOfVideos = JSON.parse(json.videos).length;
               // console.log(noOfVideos, JSON.parse(json.videos));
-              console.log("hey",data);
               // if(noOfVideos>0){
               //   // var html = '<p>Related to this project</p>';
               //   var html = '';
