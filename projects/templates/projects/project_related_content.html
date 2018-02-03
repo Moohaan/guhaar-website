@@ -24,8 +24,6 @@
                   {# <p class="hide">{{ member.description }}</p>#}
                 </div>
                 <div>
-                  {# <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">#}
-                  {# {% cloudinary story.image width=300, height=200, crop="fill" %}#}
                   {% if obj.url %}
                     <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
                       {{ obj.url|safe }}
