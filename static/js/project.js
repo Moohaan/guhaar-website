@@ -26,7 +26,6 @@ $( document ).ready(function() {
   // });
   // Navbar clicks ENDS
 
-
 function getDetails(url,str){
 
   $.ajax({
@@ -45,7 +44,6 @@ function getDetails(url,str){
 
 // project click handling **STARTS**
 function populateModal(json,str){
-  // console.log(json);
   var data;
   if(str=="projects"){
     data = JSON.parse(json.project)[0].fields;
@@ -55,13 +53,11 @@ function populateModal(json,str){
     data = JSON.parse(json.data)[0].fields;
     modalSelector.find('img').remove();
     modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
-    // attr('src', "http://res.cloudinary.com/guhaar/"+data.url);
   }
   else{
     data = JSON.parse(json.data)[0].fields;
     modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
   }
-  // console.log(data);
   modalSelector.find('h2').html(data.title);
   modalSelector.find('.modal_details p').html(data.description);
 }
