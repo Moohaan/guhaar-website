@@ -27,3 +27,13 @@ $orange2: #ffa500;
     box-shadow:0px 0px 5px $black;
   }
 }
+
+@mixin button-style {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #a3acb1;
+  @include box-shadow-hover;
+}
+
+$yellow: #fff;

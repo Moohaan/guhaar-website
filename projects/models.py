@@ -12,6 +12,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-date_started']
+
 
 class Video(models.Model):
     title = models.CharField(max_length=200, blank=True)
@@ -40,6 +43,7 @@ class Story(models.Model):
 class Interview(models.Model):
     title = models.CharField(max_length=500, blank=False)
     description = models.TextField()
+    url = models.CharField(null=True, blank=True, max_length=300)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default=0)
 
     def __str__(self):

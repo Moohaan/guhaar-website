@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% block body %}
+  {% load static %}
+  {% load cloudinary %}
+  <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
+  <script src="{% static '/js/project.js'%}"></script>
+    <body>
+      <div class="stories_container text-center container">
+        <div>
+          <h1>Related to this project</h1>
+          <p> Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
+      The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. </p>
+        </div>
+        <div>
+          <div class="stories objects">
+            {% if data %}
+              {% for obj in data %}
+              <div id="{{ obj.pk }}" class="object" object-type = "{{str}}" url="{{ obj.image.url }}">
+                <div class="text-left object_details">
+                  <h2><b>{{ obj.title }}</b> {{ obj.author }}</h2><span>{{obj.date_started}}</span>
+                  <p>{{ obj.description |slice:":500" }}</p>
+                  {# <p class="hide">{{ member.description }}</p>#}
+                </div>
+                <div>
+                  {# <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">#}
+                  {# {% cloudinary story.image width=300, height=200, crop="fill" %}#}
+                  {% if obj.url %}
+                    <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
+                      {{ obj.url|safe }}
+                  {% endif %}
+                  {% cloudinary obj.image width=300 crop='fill'%}
+                </div>
+              </div>
+              {% endfor %}
+
+<!--Paginator STARTS-->
+              <div class="pagination">
+                  <span class="step-links">
+                      {% if data.has_previous %}
+                          <a href="?page={{ data.previous_page_number }}">previous</a>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ data.number }} of {{ data.paginator.num_pages }}.
+                      </span>
+
+                      {% if data.has_next %}
+                          <a href="?page={{ data.next_page_number }}">next</a>
+                      {% endif %}
+                  </span>
+              </div>
+<!--Paginator ENDS-->
+            {% else %}
+              <div class="no_results">
+                <h4>Nothing added yet!</h4>
+              </div>
+            {% endif %}
+            {# <input type="button" value="More" name="more_stories">#}
+            <div class="modal container text-center">
+              <div class="close_modal">
+                <span>Close</span>
+              </div>
+              <div>
+                <div class="modal_details">
+                  <div>
+                    <img src = "">
+                  </div>
+                  <div class="">
+                    <h2>title</h2>
+                    <p>description</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="recent_feed text-left">
+            <h4>Recent Feeds</h4>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content</p>
+            </div>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content  </p>
+            </div>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content  </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  {% endblock body %}
+</html>

@@ -3,11 +3,46 @@ from django.http import HttpResponse #, Http404
 from django.core import serializers
 from django.http import JsonResponse
 from .models import Project, Video, Story, Interview
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render
 import json
 # Create your views here.
+
+# Paginator
+def listing(request, data_list):
+    paginator = Paginator(data_list, 5) # Show 1 contacts per page
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+    return contacts
+    # render(request, 'projects/project_related_content.html', {'data': contacts})
+
+def home(request):
+    projects = Project.objects.all()
+    videos = Video.objects.all()
+    interviews = Interview.objects.all()
+    stories = Story.objects.all()
+    stories = listing(request, stories)
+    args = {
+        'projects':projects,
+        'videos':videos,
+        'interviews':interviews,
+        'stories':stories
+    }
+    return render(request, 'home/index.html', args)
+    # return listing(request, stories)
+
 def project(request):
     args = Project.objects.all()
-    ctx = {'projects':args}
+    ctx = {
+        'projects':args
+    }
     return render(request, 'projects/projects.html', ctx)
 
 def projectDetails(request, project_id):
@@ -29,66 +64,63 @@ def projectDetails(request, project_id):
     })
     # ajax response
     return JsonResponse(context,safe=False)
-    # else:
-    #     raise Http404
+
 
 def getInterviews(request, project_id):
     project = Project.objects.filter(pk = project_id)
     # get all the interviews sorted by date
     interviews = Interview.objects.filter(project = project)
-    # serialize the data into json
-    interviews = serializers.serialize("json", interviews)
-
-    context = json.dumps({
-        'interviews':interviews,
-    })
-    return JsonResponse(context, safe=False)
+    # return listing(request, interviews)
+    context = {
+        'data':listing(request, interviews),
+        'str':'interview',
+    }
+    return render(request, 'projects/project_related_content.html', context)
 
 def getVideos(request, project_id):
     project = Project.objects.filter(pk = project_id)
     # get all the interviews sorted by date
     videos = Video.objects.filter(project = project)
-    # serialize the data into json
-    videos = serializers.serialize("json", videos)
-
-    context = json.dumps({
-        'videos':videos,
-    })
-    return JsonResponse(context, safe=False)
+    # return listing(request, videos)
+    context = {
+        'data':listing(request, videos),
+        'str':'video'
+    }
+    return render(request, 'projects/project_related_content.html', context)
 
 def getStories(request, project_id):
     project = Project.objects.filter(pk = project_id)
     # get all the interviews sorted by date
-    stories = Story.objects.filter(project = project)
-    # serialize the data into json
-    stories = serializers.serialize("json", stories)
+    stories = Story.objects.filter(project = project)[:10]
+    # return listing(request, stories)
+    context = {
+        'data':listing(request, stories),
+        'str':'story',
+    }
+    return render(request, 'projects/project_related_content.html', context)
 
-    context = json.dumps({
-        'interviews':stories,
-    })
-    return JsonResponse(context, safe=False)
-
-def getInterviewById(request, interview_id):
+def interviewDetails(request, interview_id):
     interview = Interview.objects.filter(pk = interview_id)
-
+    interview =  serializers.serialize("json", interview)
     context = json.dumps({
-        'interview':interview,
+        'data':interview,
     })
     return JsonResponse(context, safe=False)
 
-def getStoryById(request, story_id):
+
+def storyDetails(request, story_id):
     story = Story.objects.filter(pk = story_id)
-
+    story =  serializers.serialize("json", story)
     context = json.dumps({
-        'story':story,
+        'data':story,
     })
     return JsonResponse(context, safe=False)
 
-def getVideoById(request, video_id):
+def videoDetails(request, video_id):
     video = Video.objects.filter(pk = video_id)
-
+    video =  serializers.serialize("json", video)
     context = json.dumps({
-        'video':video,
+        'data':video,
     })
     return JsonResponse(context, safe=False)
 

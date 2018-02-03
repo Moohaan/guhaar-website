@@ -3,6 +3,7 @@
   {% extends "base.html" %}
   {% block body %}
   {% load static %}
+  {% load cloudinary %}
   <link rel="stylesheet" href="{% static '/css/projects.min.css'%}">
   {# <link rel="stylesheet" href="{% static '/css/team.min.css'%}">#}
   <script src="{% static '/js/project.js'%}"></script>
@@ -13,16 +14,17 @@
           <p>Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
 The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness.</p>
           </div>
-        <div class="projects">
+        <div class="projects objects">
             {% for project in projects %}
             {% csrf_token %}
             <!--<div class="project text-center" id ="{{ project.pk }}">
                 <img src="{{ project.image.url }}" alt="{{project.title}}">
                 <h4>{{ project.title }}</h4>
             </div>-->
-            <div class="project" id ="{{ project.pk }}">
-              <img src="{{ project.image.url }}" alt="{{project.title}}">
-              <div class="project_details">
+            <div class="project object" id ="{{ project.pk }}" object-type = "projects">
+              {# <img src="{{ project.image.url }}" alt="{{project.title}}">#}
+              {% cloudinary project.image height=350 crop='fill'%}
+              <div class="project_details object_details">
                 <h4>{{ project.title }}</h4>
                 <span>{{ project.date_started }}</span>
                 <p>{{ project.description | slice:":500" }}</p>
@@ -30,13 +32,19 @@ The aim is to bring in light many more important issues in future. To make it su
               <h5>Related to this project</h5>
               <div class="project_related_content">
                 <div id="stories">
-                  <h1>Articles</h1>
-                </div>
-                <div id="interviews">
-                  <h1>interviews</h1>
+                  <a href="{% url 'project_stories' project.pk %}">
+                    <h1>Articles</h1>
+                  </a>
                 </div>
                 <div id="videos">
-                  <h1>videos</h1>
+                  <a href="{% url 'project_videos' project.pk %}">
+                    <h1>Videos</h1>
+                  </a>
+                </div>
+                <div id="interviews">
+                  <a href="{% url 'project_interviews' project.pk %}">
+                    <h1>Interviews</h1>
+                  </a>
                 </div>
               </div>
             </div>
