@@ -10,7 +10,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 
 # MIDDLEWARE = [
 #     'django.middleware.security.SecurityMiddleware',
@@ -32,9 +31,4 @@ cloudinary.config(
   cloud_name = os.environ.get('cloud_name'),
   api_key = os.environ.get('api_key'),
   api_secret = os.environ.get('api_secret')
-)
-cloudinary.config(
-  cloud_name = 'guhaar',
-  api_key = '896979177588687',
-  api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
 )
