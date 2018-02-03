@@ -59,7 +59,8 @@ The aim is to bring in light many more important issues in future. To make it su
       {% for story in stories %}
       <div id="{{ story.pk }}" class="object" object-type="story" url="{{ story.image.url }}">
         <div class="text-left object_details">
-          <h2><b>{{ story.title }}</b> {{ story.author }}</h2><span>{{story.date_started}}</span>
+          <h4>{{ story.title }}<span> by {{ story.author }}</span></h4>
+          <p>{{story.date_started}}</p>
           <p>{{ story.description |slice:":500" }}</p>
         </div>
         <div>

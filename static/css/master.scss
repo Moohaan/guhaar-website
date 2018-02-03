@@ -10,10 +10,6 @@ body{
       // font-family: 'Alegreya', serif;
       // text-transform: uppercase;
       // font-weight: 900;
-      // font-size: 14px;
-      // max-width: 760px;
-      // margin: auto;
-      // padding: 0 20px;
     }
     ul{
       padding: 0;
@@ -34,10 +30,7 @@ body{
     text-shadow: 2px 2px 4px $black;
   }
   p{
-    // font-size: 16px;
     letter-spacing: 2px;
-    // max-width: 600px;
-    // margin: auto;
   }
 }
 #myCarousel{
@@ -50,7 +43,6 @@ body{
   }
  .carousel-control.left,
  .carousel-control.right{
-  //  right: -5em;
   border-radius: 10px;
  }
 }
@@ -68,12 +60,10 @@ h1,h2,h3,h4,h5,h6{
 // }
 .contact_us_form{
   margin-top: 130px;
-  // margin-bottom: 20px;
 }
 form {
   width: 50%;
   margin: auto;
-  // padding: 50px 0;
   margin: 40px auto;
   padding: 10px 25px 50px;
   box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
@@ -84,7 +74,6 @@ form {
       font-size: 18px;
       font-weight: 900;
       letter-spacing: 1px;
-      // text-shadow: 1px 1px 2px $black;
     }
   }
 }

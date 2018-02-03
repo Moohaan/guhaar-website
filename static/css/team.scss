@@ -25,7 +25,6 @@ div.team_container{
 		}
 	}
 	.team {
-		// background-color: yellow;
 		display: grid;
 		grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
 		grid-gap: 60px;
@@ -78,17 +77,11 @@ div.team_container{
 					text-transform: capitalize;
 				}
 			}
-			// padding-left: 15px;
-			// text-align: left;
-			// display: none;
-			// height: 100%;
-			// width: 100%;
 		}
 	}
 	.modal_details{
 		display: flex;
 		flex-wrap: wrap;
-		// text-align: center;
 		p{
 			padding: 0;
 		}
