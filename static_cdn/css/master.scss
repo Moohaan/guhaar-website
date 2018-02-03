@@ -154,6 +154,8 @@ form {
 }
 
 // *******  Navigation Bar ends ******
+
+
 // *******  Modal starts ******
 
 div.modal {
@@ -162,7 +164,7 @@ div.modal {
   z-index: 10;
 	display: none;
   overflow: auto;
-	background-color: yellow;
+	background-color: $yellow;
   box-shadow: 0 0 20px $black;
 	// border-radius: 10px;
 
@@ -176,7 +178,7 @@ div.modal {
     padding: 0;
 		&:hover{
 			cursor: pointer;
-			color: $navbar_background_color;
+			color: 0.1*$black;
 		}
 		&>span{
 			padding: 10px 14px;
@@ -187,6 +189,12 @@ div.modal {
 			}*/
 		}
 	}
+  .modal_details{
+    img{
+      width: 1000px;
+      height: 400px;
+    }
+  }
 }
 
 @media (max-width: 1199px) {
@@ -195,6 +203,23 @@ div.modal {
     }
 }
 // *******  Modal Ends ******
+
+
+
+// ******** paginator Starts ********
+
+.pagination{
+  color: $black;
+  span>a{
+    @include button-style;
+    margin: 0 25px;
+    box-shadow: 0 0 10px $black;
+    border-radius: 0;
+    text-decoration: none;
+  }
+}
+// ******** paginator Ends ********
+
 
 // *******  Footer starts ******
 footer {
@@ -244,7 +269,7 @@ footer{
       text-transform: capitalize;;
     }
   }
-  
+
 }
 
 

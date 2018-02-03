@@ -4,6 +4,7 @@ $( document ).ready(function() {
   // var scrollToStoriesSelector = $(".scroll_story");
   // var storiesSectionSelector = $(".stories_container");
   var projectContainerSelector = $(".projects");
+  var objectSelector = $(".objects");
   var projectSelector = $( ".project" );
   var memberSelector = $( ".member" );
   var modalSelector = $(".modal");
@@ -11,8 +12,10 @@ $( document ).ready(function() {
 
   // Hide and Show project modal ***STARTS***
   var hideTime = 200;
+  var offSet = 130;
   var scrollTime = 500;
   var scrollBackId = 0;
+
   // Navbar clicks STARTS
   // scrollToStoriesSelector.on('click', function(event) {
   //   event.preventDefault();
@@ -24,47 +27,59 @@ $( document ).ready(function() {
   // Navbar clicks ENDS
 
 
+function getDetails(url,str){
+
+  $.ajax({
+       url: url,
+       dataType: "json",
+       success: function(data){
+          var json = JSON.parse(data);
+          populateModal(json,str);
+       },
+       error: function (data) {
+         console.log(data);
+         alert('Sorry, try again.');
+       }
+   });
+}
 
 // project click handling **STARTS**
-  projectSelector.on( "click", '.project_details', function( event ) {
+function populateModal(json,str){
+  // console.log(json);
+  var data;
+  if(str=="projects"){
+    data = JSON.parse(json.project)[0].fields;
+    modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+  }
+  else if(str=="video"){
+    data = JSON.parse(json.data)[0].fields;
+    modalSelector.find('img').remove();
+    modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
+    // attr('src', "http://res.cloudinary.com/guhaar/"+data.url);
+  }
+  else{
+    data = JSON.parse(json.data)[0].fields;
+    modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+  }
+  // console.log(data);
+  modalSelector.find('h2').html(data.title);
+  modalSelector.find('.modal_details p').html(data.description);
+}
+
+
+  objectSelector.on( "click", '.object_details', function( event ) {
       event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
-      var id = $(this).parents('.project').attr('id');
+      var parentSelector = $(this).parents('.object');
+      var id = parentSelector.attr('id');
+      var str = parentSelector.attr('object-type');
+      var url = "/"+str+"/"+id+"/";
       scrollBackId = id;
-      $.ajax({
-           url: "/projects/"+id+"/",
-           dataType: "json",
-           success: function(data){
-            //  alert('worked!!');
-            // console.log("hey",data);
-              var json = JSON.parse(data);
-              project = JSON.parse(json.project)[0].fields;
-              // var noOfVideos = JSON.parse(json.videos).length;
-              // console.log(noOfVideos, JSON.parse(json.videos));
-              // if(noOfVideos>0){
-              //   // var html = '<p>Related to this project</p>';
-              //   var html = '';
-              //   /*for(var i =0; i<noOfVideos; i++){
-              //     // stories = JSON.parse(json.stories)[0].fields;
-              //     // interviews = JSON.parse(json.interviews)[0].fields;
-              //     videos = JSON.parse(json.videos)[i].fields;
-              //     html+='<iframe id="player" type="text/html" width="300px" height="220px" src="'+videos.url+'" frameborder="0"></iframe>';
-              //   }*/
-              //   modalSelector.find('.project_related_content').append(html);
-              // }
-              modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+project.image);
-              modalSelector.find('h2').html(project.title);
-              modalSelector.find('.modal_details p').html(project.description);
-           },
-           error: function (data) {
-             console.log(data);
-             alert('Sorry, try again.');
-           }
-       });
-      $('body').addClass('stop-scrolling');
+      console.log(url);
+      getDetails(url,str);
       $('html, body').animate({
-        scrollTop: $(projectSelector.parent('.projects')).offset().top-120
+        scrollTop: $(parentSelector.parents('.objects')).offset().top-offSet
       }, scrollTime);
   });
   // project click handling ** ENDS **
@@ -81,33 +96,28 @@ $( document ).ready(function() {
            url: "/aboutus/"+id+"/",
            dataType: "json",
            success: function(data){
-            //  alert('worked!!');
             member = JSON.parse(data)[0].fields;
             modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+member.image);
             modalSelector.find('h2').html(member.name);
             modalSelector.find('p').html(member.short_description);
             modalSelector.find('.member_details>p').html(member.description);
-            // console.log(member);
            },
            error: function (data) {
-            //  console.log(data);
-             alert('Sorry, try again.');
+             alert('unexpected Error, try again.');
            }
        });
        $('html, body').animate({
-         scrollTop: $(memberSelector.parent('.team')).offset().top-120
+         scrollTop: $(memberSelector.parent('.team')).offset().top-offSet
        }, scrollTime);
-      // console.log(pk);
-      // $(document).scroll().disable();
   });
   // project click handling ** ENDS **
 
   closeModalSelector.on( "click", function( event ) {
       event.preventDefault();
-      modalSelector.find('.project_related_content').html('');
+      $(this).find('.modal').html('');
       $(this).parent().slideUp(hideTime);
       $('html, body').animate({
-        scrollTop: $(".project#"+scrollBackId).offset().top
+        scrollTop: $(".object#"+scrollBackId).offset().top
       }, scrollTime);
       // console.log('hfecd');
   });
