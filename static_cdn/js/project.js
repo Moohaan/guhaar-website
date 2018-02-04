@@ -1,8 +1,6 @@
 // console.log(0);
 $( document ).ready(function() {
-  // console.log(0);
-  // var scrollToStoriesSelector = $(".scroll_story");
-  // var storiesSectionSelector = $(".stories_container");
+
   var projectContainerSelector = $(".projects");
   var objectSelector = $(".objects");
   var projectSelector = $( ".project" );

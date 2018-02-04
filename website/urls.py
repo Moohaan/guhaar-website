@@ -11,7 +11,6 @@ urlpatterns = [
     url(r'^projects/', include('projects.urls')),
     url(r'^contactus/', ContactUs.as_view(), name='contactus_view'),
     url(r'^aboutus/', include('aboutus.urls')),
-    # TODO: stories/ is use less for now
     url(r'^story/(?P<story_id>[0-9]+)/$', projects.views.storyDetails, name='story_details'),
     url(r'^video/(?P<video_id>[0-9]+)/$', projects.views.videoDetails, name='video_details'),
     url(r'^interview/(?P<interview_id>[0-9]+)/$', projects.views.interviewDetails, name='interview_details'),

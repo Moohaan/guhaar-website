@@ -148,13 +148,11 @@ form {
 
 div.modal {
 	position: absolute;
-	// display: flex;
   z-index: 10;
 	display: none;
   overflow: auto;
 	background-color: $yellow;
   box-shadow: 0 0 20px $black;
-	// border-radius: 10px;
 
 	&>div{
 		padding: 30px 30px;
@@ -192,8 +190,6 @@ div.modal {
 }
 // *******  Modal Ends ******
 
-
-
 // ******** paginator Starts ********
 
 .pagination{
@@ -208,16 +204,11 @@ div.modal {
 }
 // ******** paginator Ends ********
 
-
 // *******  Footer starts ******
 footer {
   margin-bottom: 0;
-  // background-color:$navbar_background_color;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
-  // h1,h2,h3,h4,h5,h6,a,p,span{
-  //   color: $font_color;
-  // }
 }
 footer{
 

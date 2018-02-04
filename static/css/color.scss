@@ -5,10 +5,10 @@
 
 $yellow_background: 0.5*grey;
 $white: #FFF;
-// $font_color: #CC5466
 $font_color: grey;
-// $navbar_background_color: #252935;
 $navbar_background_color: #fff;
+// $font_color: #CC5466
+// $navbar_background_color: #252935;
 
 $yellow: #ebba00;
 $red: #be2433;
@@ -17,7 +17,7 @@ $black: #171928;
 $gray: #a3acb1;
 $orange: #d2691e;
 $orange2: #ffa500;
-// 
+//
 @mixin box-shadow-hover {
   cursor: pointer;
   transition: all 0.2s linear;
