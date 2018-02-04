@@ -9,15 +9,11 @@
 <meta name="keywords" content="guhaar.com, guhaar, guhaar delhi, narmda bachao andolan, nba" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="{% static '/css/master.min.css' %}" type="text/css">
   {% block head %}
-    <head>
-    </head>
+
   {% endblock head %}
-  <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -29,7 +25,7 @@
           </button>
 
           <div class="logo">
-            <a class="navbar-brand" href="{% url 'home_view' %}"><img src="{% static '/images/favicon.ico' %}" alt="GUHAAR image"><span>GUHAAR</span></a>
+            <a class="navbar-brand" href="{% url 'home_view' %}"><img class="img-responsive" src="{% static '/images/favicon.ico' %}" alt="GUHAAR image"><span>GUHAAR</span></a>
           </div>
         </div>
 
@@ -63,10 +59,8 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-   </body>
   {% block body %}
-    <body>
-    </body>
+
   {% endblock body %}
   <footer class="container">
       <div>
@@ -102,4 +96,8 @@
           <span>Guhaar</span>
       </div>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  {% block scripts %}
+  {% endblock scripts %}
 </html>

@@ -5,7 +5,6 @@
   {% load static %}
   {% load cloudinary %}
   <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
-  <script src="{% static '/js/project.js'%}"></script>
     <body>
       <div class="stories_container text-center container">
         <div>
@@ -63,7 +62,7 @@
               <div>
                 <div class="modal_details">
                   <div>
-                    <img src = "">
+                    <img class="img-responsive" src = "">
                   </div>
                   <div class="">
                     <h2>title</h2>
@@ -92,4 +91,8 @@
       </div>
     </body>
   {% endblock body %}
+
+  {% block scripts %}
+  <script src="{% static '/js/project.js'%}"></script>
+  {% endblock scripts %}
 </html>

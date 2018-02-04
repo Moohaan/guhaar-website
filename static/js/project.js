@@ -49,7 +49,7 @@ function populateModal(json,str){
   }
   else if(str=="video"){
     data = JSON.parse(json.data)[0].fields;
-    modalSelector.find('img').remove();
+    modalSelector.find('div.modal_details>div:first-of-type').html('<img class="img-responsive" src="" alt="">');
     modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
   }
   else{
@@ -113,8 +113,11 @@ function populateModal(json,str){
 
   closeModalSelector.on( "click", function( event ) {
       event.preventDefault();
-      $(this).find('.modal').empty();
       $(this).parent().slideUp(hideTime);
+      // modalSelector.find('div.modal_details>div:first-of-type').html('');
+      modalSelector.find('div.modal_details>div:first-of-type').html('<img class="img-responsive" src="" alt="">');
+      modalSelector.find('h2').html('');
+      modalSelector.find('.modal_details p').html('');
       $('html, body').animate({
         scrollTop: $(".object#"+scrollBackId).offset().top
       }, scrollTime);

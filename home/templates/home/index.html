@@ -5,7 +5,6 @@
   {% load static %}
   {% load cloudinary %}
   <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
-  <script src="{% static '/js/project.js'%}"></script>
   <div class="container">
     <div class="text-center welcome">
       <h1>Guhaar Welcomes You</h1>
@@ -25,15 +24,15 @@
           <!--<div>
             <p>Some lines to descibe very shortly what guhaar does</p>
           </div>-->
-          <img src="{% static 'images/guhaar.jpg'%}" alt="images1">
+          <img class="img-responsive" src="{% static 'images/guhaar.jpg'%}" alt="images1">
         </div>
 
         <div class="item">
-          <img src="{% static 'images/okabe.png'%}" alt="images2">
+          <img class="img-responsive" src="{% static 'images/okabe.png'%}" alt="images2">
         </div>
 
         <div class="item">
-          <img src="{% static 'images/messi.jpeg'%}" alt="images3">
+          <img class="img-responsive" src="{% static 'images/messi.jpeg'%}" alt="images3">
         </div>
       </div>
       <!-- Left and right controls -->
@@ -124,7 +123,6 @@ The aim is to bring in light many more important issues in future. To make it su
     </div>
   </div>
 </div>
-
 <div class="container">
   <section class="section_with_projects">
     <!--{% for project in projects %}
@@ -151,4 +149,8 @@ The aim is to bring in light many more important issues in future. To make it su
    </section>
 </div>
  {% endblock body %}
+ 
+ {% block scripts %}
+ <script src="{% static '/js/project.js'%}"></script>
+ {% endblock scripts %}
  </html>
