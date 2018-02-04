@@ -1,0 +1,38 @@
+// @import url('https://fonts.googleapis.com/css?family=Alegreya|Roboto:500');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,900|Merriweather:400,400i,700&subset=latin-ext');
+    // font-family: 'Lato', sans-serif;
+    // font-family: 'Merriweather', serif;
+
+$yellow_background: 0.5*grey;
+$white: #FFF;
+$font_color: grey;
+$navbar_background_color: #fff;
+// $font_color: #CC5466
+// $navbar_background_color: #252935;
+
+$yellow: #ebba00;
+$red: #be2433;
+$white: #e0e6e4;
+$black: #171928;
+$gray: #a3acb1;
+$orange: #d2691e;
+$orange2: #ffa500;
+//
+@mixin box-shadow-hover {
+  cursor: pointer;
+  transition: all 0.2s linear;
+  box-shadow:0px 0px 15px $black;
+  &:hover{
+    box-shadow:0px 0px 5px $black;
+  }
+}
+
+@mixin button-style {
+  border: 0;
+  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #a3acb1;
+  @include box-shadow-hover;
+}
+
+$yellow: #fff;

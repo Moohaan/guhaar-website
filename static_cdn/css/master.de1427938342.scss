@@ -1,0 +1,256 @@
+@import "color.scss";
+
+body{
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    background-color: $yellow;
+  	color: $black;
+    font-size: 16px;
+    p{
+      // font-family: 'Alegreya', serif;
+      // text-transform: uppercase;
+    }
+    ul{
+      padding: 0;
+      text-align: left;
+    }
+    li{
+      list-style-type: none;
+    }
+}
+.container::before, .container::after{
+  content: unset;
+}
+
+.welcome{
+  margin-top: 130px;
+  h1{
+    font-size: 60px;
+    text-shadow: 2px 2px 4px $black;
+  }
+  p{
+    letter-spacing: 2px;
+  }
+}
+#myCarousel{
+  max-width: 1000px;
+  margin: 50px auto 0;
+  img{
+    min-width: 100%;
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+ .carousel-control.left,
+ .carousel-control.right{
+  border-radius: 10px;
+ }
+}
+
+a{
+  cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: $red;
+    font-weight: bolder;
+}
+// h1,h2,h3,h4,h5,h6{
+//   font-family: 'Alegreya', sans-serif;
+// }
+.contact_us_form{
+  margin-top: 130px;
+}
+form {
+  width: 50%;
+  margin: auto;
+  margin: 40px auto;
+  padding: 10px 25px 50px;
+  box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
+  p{
+    margin: 20px 0;
+    label{
+      color: $red;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+  }
+}
+.form-control{ //input
+  background-color: $gray;
+  color: $black;
+  border: 0;
+}
+
+// *******  Navigation Bar starts ******
+
+.navbar-default {
+    background-color: $black;
+    border-color: $red;
+    span{
+      color: $red;
+    }
+    .navbar-nav>li{
+      &>a{
+        color: $red;
+        line-height: 40px;
+        font-size: 14px;
+        // -webkit-transition: 0.6s;
+        transition: all 0.5s linear;
+        &:hover, &:focus{
+          // background-color: 0.6*$red;
+          color: $yellow_background;
+          border-bottom: solid $gray 2px;
+        }
+      }
+    }
+}
+.navbar-header{
+  position: relative;
+  >button{
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    margin: 0 15px 0;
+  }
+}
+
+.navbar {
+  margin-bottom: 0;
+  .logo{
+    display: inline-block;
+    padding: 24px 15px 0;
+    .navbar-brand{
+      padding: 15px;
+    }
+    }
+  img{
+    display: inline;
+    margin-right: 20px;
+  }
+  li{
+    a{
+      font-size: 14px;
+      display: inline;
+      padding: 12px 15px;
+    }
+  }
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: $gray;
+}
+
+// *******  Navigation Bar ends ******
+
+
+// *******  Modal starts ******
+
+div.modal {
+	position: absolute;
+  z-index: 10;
+	display: none;
+  overflow: auto;
+	background-color: $yellow;
+  box-shadow: 0 0 20px $black;
+
+	&>div{
+		padding: 30px 30px;
+	}
+	.close_modal{
+		position: absolute;
+    right: 10px;
+    top: 19px;
+    padding: 0;
+		&:hover{
+			cursor: pointer;
+			color: 0.1*$black;
+		}
+		&>span{
+			padding: 10px 14px;
+			border: 1px solid;
+			border-radius: 20px;
+			/*&:hover{
+				color: $font_color*.2;
+			}*/
+		}
+	}
+  .modal_details{
+    img{
+      width: 1000px;
+      height: 400px;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+    div.modal {
+        overflow: scroll;
+    }
+}
+// *******  Modal Ends ******
+
+// ******** paginator Starts ********
+
+.pagination{
+  color: $black;
+  span>a{
+    @include button-style;
+    margin: 0 25px;
+    box-shadow: 0 0 10px $black;
+    border-radius: 0;
+    text-decoration: none;
+  }
+}
+// ******** paginator Ends ********
+
+// *******  Footer starts ******
+footer {
+  margin-bottom: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+footer{
+
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: solid 2px $red;
+
+  &>div{
+    margin: 30px 10px;
+    flex: 1;
+    min-width: 200px;
+    p{
+      font-size: 12px;
+      max-width: 300px;
+      text-align: left;
+    }
+    ul>h5{
+      text-align: left;
+    }
+    li>a{
+      font-size: 12px;
+      color: $black;
+    }
+  }
+  input{
+    margin-top: 5px;
+  }
+
+  // TODO: media query
+  .subscribe{
+    // grid-column: span 2;
+    input{
+      border: 0;
+      padding: 6px 15px;
+      background-color: $gray;
+      text-transform: capitalize;;
+    }
+  }
+
+}
+
+
+
+// ******* Footer ends ******

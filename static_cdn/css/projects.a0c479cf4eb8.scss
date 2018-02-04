@@ -1,0 +1,73 @@
+@import "color.scss";
+
+.projects_container>div:first-of-type{
+   margin: 130px auto 20px;
+   border-bottom: 3px solid $red;
+   padding-bottom: 100px;
+}
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 50px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  position: relative;
+
+  .project{
+    position: relative;
+    background-color: $gray;
+    img{
+      width: 100%;
+      transition: all .2s ease-out;
+    }
+    h4{
+      font-size: 24px;
+      letter-spacing: 2px;
+      bottom: 0; left: 0; right: 0;
+      text-transform: capitalize;
+      text-shadow: 1px 1px 1px $black;
+    }
+    .project_details{
+      @include box-shadow-hover;
+      width: 70%;
+      margin: auto;
+      margin-top: -15%;
+      padding: 25px 10px;
+      position: relative;
+      background-color: $orange;
+      box-shadow: 0px 0px 20px $black;
+    }
+    .project_related_content{
+      display: flex;
+      flex-wrap: wrap;
+      h1{
+        font-size: 16px;
+      }
+      >div{
+        flex: 1;
+        margin: 10px;
+        @include box-shadow-hover;
+        background-color: $gray;
+        a{
+          display: inline-block;
+          min-width: 100%;
+          min-height: 100%;
+          padding: 30px 25px;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    >h5{
+      text-align: left;
+      font-size: 18px;
+      padding: 15px 0 0 15px;
+      margin-top: 35px;
+      border-top: solid 2px $yellow;
+    }
+    .project_description{
+      display: none;
+    }
+  }
+}
