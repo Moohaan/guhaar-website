@@ -108,7 +108,7 @@ function populateModal(json,str){
 
   closeModalSelector.on( "click", function( event ) {
       event.preventDefault();
-      $(this).find('.modal').html('');
+      $(this).find('.modal').empty();
       $(this).parent().slideUp(hideTime);
       $('html, body').animate({
         scrollTop: $(".object#"+scrollBackId).offset().top
