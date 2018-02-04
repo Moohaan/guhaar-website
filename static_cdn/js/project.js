@@ -54,7 +54,11 @@ function populateModal(json,str){
   }
   else{
     data = JSON.parse(json.data)[0].fields;
-    modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+    if(data.url){
+      modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.url);
+    }else{
+      modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+    }
   }
   modalSelector.find('h2').html(data.title);
   modalSelector.find('.modal_details p').html(data.description);
