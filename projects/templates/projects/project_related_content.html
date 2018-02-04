@@ -26,8 +26,9 @@
                   {% if obj.url %}
                     <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
                       {{ obj.url|safe }}
+                  {% else %}
+                      {% cloudinary obj.image width=300 crop='fill'%}
                   {% endif %}
-                  {% cloudinary obj.image width=300 crop='fill'%}
                 </div>
               </div>
               {% endfor %}
@@ -62,7 +63,7 @@
               <div>
                 <div class="modal_details">
                   <div>
-                    <img class="img-responsive" src = "">
+                    <img src = "">
                   </div>
                   <div class="">
                     <h2>title</h2>

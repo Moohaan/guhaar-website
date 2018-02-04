@@ -6,8 +6,6 @@
   {% load cloudinary %}
   {% load static %}
   <link rel="stylesheet" href="{% static '/css/team.min.css' %}" type="text/css">
-  <script src="{% static '/js/project.js'%}"></script>
-
     <body>
       <div class="container team_body">
         <div class="text-center about_team">
@@ -46,7 +44,7 @@
               <div class="modal_details">
                 <div>
                   <!--{% load static %}-->
-                  <img width="300px">
+                  <img height="300px">
                   <h2>Name</h2>
                   <p>short_descriptimodal_membermodal_memberon</p>
                 </div>
@@ -62,4 +60,8 @@
       </div>
     </body>
   {% endblock body %}
+
+  {% block scripts %}
+      <script src="{% static '/js/project.js'%}"></script>
+  {% endblock scripts %}
 </html>

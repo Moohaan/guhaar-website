@@ -41,24 +41,34 @@ function getDetails(url,str){
 }
 
 // project click handling **STARTS**
+function insertDataInDom(parentSelector, htmlData){
+  parentSelector.find('div.modal_details>div:first-of-type').html('');
+  parentSelector.find('div.modal_details>div:first-of-type').html(htmlData);
+}
 function populateModal(json,str){
   var data;
   if(str=="projects"){
     data = JSON.parse(json.project)[0].fields;
-    modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+    // modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+    src = "http://res.cloudinary.com/guhaar/"+data.image;
+    alt = data.title;
+    insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
   }
-  else if(str=="video"){
-    data = JSON.parse(json.data)[0].fields;
-    modalSelector.find('div.modal_details>div:first-of-type').html('<img class="img-responsive" src="" alt="">');
-    modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
-  }
+  // else if(str=="video"){
+  //   data = JSON.parse(json.data)[0].fields;
+  //   insertDataInDom(modalSelector, data.url);
+  // }
   else{
     data = JSON.parse(json.data)[0].fields;
     if(data.url){
-      modalSelector.find('img').remove();
-      modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
+      // modalSelector.find('div.modal_details>div:first-of-type').html('');
+      // modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
+      insertDataInDom(modalSelector, data.url);
     }else{
-      modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+      // modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
+      src = "http://res.cloudinary.com/guhaar/"+data.image;
+      alt = data.title;
+      insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
     }
   }
   modalSelector.find('h2').html(data.title);
@@ -115,7 +125,8 @@ function populateModal(json,str){
       event.preventDefault();
       $(this).parent().slideUp(hideTime);
       // modalSelector.find('div.modal_details>div:first-of-type').html('');
-      modalSelector.find('div.modal_details>div:first-of-type').html('<img class="img-responsive" src="" alt="">');
+      // modalSelector.find('div.modal_details>div:first-of-type').html('<img src="" alt="">');
+      insertDataInDom(modalSelector, '<img src="" alt="">');
       modalSelector.find('h2').html('');
       modalSelector.find('.modal_details p').html('');
       $('html, body').animate({
