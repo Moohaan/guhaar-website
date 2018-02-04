@@ -55,7 +55,8 @@ function populateModal(json,str){
   else{
     data = JSON.parse(json.data)[0].fields;
     if(data.url){
-      modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.url);
+      modalSelector.find('img').remove();
+      modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
     }else{
       modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
     }
