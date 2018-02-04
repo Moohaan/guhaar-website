@@ -22,8 +22,8 @@
           <div>
             <div class="team">
               {% for member in members %}
-              <div id="{{ member.pk }}" class="member" url="{{ member.image.url }}">
-                <div>
+              <div id="{{ member.pk }}" class="member object" url="{{ member.image.url }}">
+                <div class="object_detail">
                   {# <img src="{{ member.image.url }}" alt="{{ member.name }}">#}
                   {% cloudinary member.image width=270 height=300 crop='fill'%}
                   <div class="name_header">
@@ -44,7 +44,7 @@
               <div class="modal_details">
                 <div>
                   <!--{% load static %}-->
-                  <img height="300px">
+                  <img alt="member thumbnail">
                   <h2>Name</h2>
                   <p>short_descriptimodal_membermodal_memberon</p>
                 </div>

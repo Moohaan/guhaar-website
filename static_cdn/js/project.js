@@ -41,31 +41,25 @@ function getDetails(url,str){
 }
 
 // project click handling **STARTS**
+
 function insertDataInDom(parentSelector, htmlData){
   parentSelector.find('div.modal_details>div:first-of-type').html('');
   parentSelector.find('div.modal_details>div:first-of-type').html(htmlData);
 }
+
 function populateModal(json,str){
   var data;
   if(str=="projects"){
     data = JSON.parse(json.project)[0].fields;
-    // modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
     src = "http://res.cloudinary.com/guhaar/"+data.image;
     alt = data.title;
     insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
   }
-  // else if(str=="video"){
-  //   data = JSON.parse(json.data)[0].fields;
-  //   insertDataInDom(modalSelector, data.url);
-  // }
   else{
     data = JSON.parse(json.data)[0].fields;
     if(data.url){
-      // modalSelector.find('div.modal_details>div:first-of-type').html('');
-      // modalSelector.find('div.modal_details>div:first-of-type').html(data.url);
       insertDataInDom(modalSelector, data.url);
     }else{
-      // modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+data.image);
       src = "http://res.cloudinary.com/guhaar/"+data.image;
       alt = data.title;
       insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
@@ -75,8 +69,7 @@ function populateModal(json,str){
   modalSelector.find('.modal_details p').html(data.description);
 }
 
-
-  objectSelector.on( "click", '.object_details', function( event ) {
+objectSelector.on( "click", '.object_details', function( event ) {
       event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
@@ -94,22 +87,24 @@ function populateModal(json,str){
   // project click handling ** ENDS **
 
   // member click handling ** STARTS **
-  memberSelector.on( "click", function( event ) {
+memberSelector.on( "click", function( event ) {
       event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
-      // var url = $(this).attr('url');
-      // modalSelector.find('img').attr('src',url);
       var id = $(this).attr('id');
+      scrollBackId = id;
       $.ajax({
            url: "/aboutus/"+id+"/",
            dataType: "json",
            success: function(data){
             member = JSON.parse(data)[0].fields;
-            modalSelector.find('img').attr('src', "http://res.cloudinary.com/guhaar/"+member.image);
-            modalSelector.find('h2').html(member.name);
-            modalSelector.find('p').html(member.short_description);
-            modalSelector.find('.member_details>p').html(member.description);
+            src = "http://res.cloudinary.com/guhaar/"+member.image;
+            name =  member.name;
+            short_description = member.short_description;
+            description = member.description;
+            str = '<img src='+src+' alt="member thumbnail"><h2>'+name+'</h2><p>'+short_description+'</p>';
+            insertDataInDom(modalSelector, str);
+            modalSelector.find('.member_details p').html(member.description);
            },
            error: function (data) {
              alert('unexpected Error, try again.');
@@ -124,21 +119,14 @@ function populateModal(json,str){
   closeModalSelector.on( "click", function( event ) {
       event.preventDefault();
       $(this).parent().slideUp(hideTime);
-      // modalSelector.find('div.modal_details>div:first-of-type').html('');
-      // modalSelector.find('div.modal_details>div:first-of-type').html('<img src="" alt="">');
       insertDataInDom(modalSelector, '<img src="" alt="">');
       modalSelector.find('h2').html('');
       modalSelector.find('.modal_details p').html('');
+      console.log(".object#"+scrollBackId);
       $('html, body').animate({
         scrollTop: $(".object#"+scrollBackId).offset().top
       }, scrollTime);
-      // console.log('hfecd');
   });
-
-  // $('body').not(projectSelector).on('click',function(event){
-  //   event.preventDefault();
-  //   closeModalSelector.trigger('click');
-  // });
 
 // Hide and Show project modal  ***ENDS***
 });
