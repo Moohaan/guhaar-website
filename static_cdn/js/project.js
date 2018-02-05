@@ -13,7 +13,7 @@ $( document ).ready(function() {
   var offSet = 130; // offset from the top if the body: USED WHILE SCROLLING THE HTML BODY
   var scrollTime = 900;
   var scrollBackId = 0; // Keeping track of where was user when click was triggered to get the user back to the same location on the page
-  
+
   var fetchedObjects = {}; // To keep track of which item is fetched and which is not in order to minimize the Ajax calls
 
   // Navbar clicks STARTS
@@ -66,7 +66,7 @@ function populateModal(str,json){
       name =  member.name;
       short_description = member.short_description;
       description = member.description;
-      str = '<img src='+src+' alt="member thumbnail"><h2>'+name+'</h2><p>'+short_description+'</p>';
+      str = '<img class= "member_thumb" src='+src+' alt="member thumbnail"><h2>'+name+'</h2><p>'+short_description+'</p>';
 
       insertDataInDom(modalSelector, str);
       modalSelector.find('.member_details p').html(member.description);
