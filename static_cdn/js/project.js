@@ -62,14 +62,14 @@ function populateModal(str,json){
 
   if(str=="members"){
      // If User clicked the team members' images
-      src = "http://res.cloudinary.com/guhaar/"+member.image;
-      name =  member.name;
-      short_description = member.short_description;
-      description = member.description;
+      src = "http://res.cloudinary.com/guhaar/"+json.image;
+      name =  json.name;
+      short_description = json.short_description;
+      description = json.description;
       str = '<img class= "member_thumb" src='+src+' alt="member thumbnail"><h2>'+name+'</h2><p>'+short_description+'</p>';
 
       insertDataInDom(modalSelector, str);
-      modalSelector.find('.member_details p').html(member.description);
+      modalSelector.find('.member_details p').html(json.description);
 
   }else {
 
@@ -133,7 +133,7 @@ memberSelector.on( "click", function( event ) {
       scrollBackId = id;
       if(fetchedObjects[id]){
         // to check is this item has been fetched before
-        console.log('ajax not called');
+        console.log('ajax not called', fetchedObjects[id]);
         populateModal("members",fetchedObjects[id]);
 
       } else {
