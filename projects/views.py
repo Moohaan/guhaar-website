@@ -5,23 +5,25 @@ from django.http import JsonResponse
 from .models import Project, Video, Story, Interview
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
+from operator import attrgetter
+from itertools import chain
 import json
 # Create your views here.
 
 # Paginator
 def listing(request, data_list):
-    paginator = Paginator(data_list, 5) # Show 1 contacts per page
+    paginator = Paginator(data_list, 5) # Show 1 results per page
     page = request.GET.get('page')
     try:
-        contacts = paginator.page(page)
+        results = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
-        contacts = paginator.page(1)
+        results = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        contacts = paginator.page(paginator.num_pages)
-    return contacts
-    # render(request, 'projects/project_related_content.html', {'data': contacts})
+        results = paginator.page(paginator.num_pages)
+    return results
+    # render(request, 'projects/project_related_content.html', {'data': results})
 
 def home(request):
     projects = Project.objects.all()
@@ -47,20 +49,11 @@ def project(request):
 
 def projectDetails(request, project_id):
     project = Project.objects.filter(pk = project_id)
-    # videos  = Video.objects.filter(project = project)[:3]
-    # stories = Story.objects.filter(project= project)
-    # interviews = Interview.objects.filter(project = project)
     # serialize all the data
     project =  serializers.serialize("json", project)
-    # videos =  serializers.serialize("json", videos)
-    # stories =  serializers.serialize("json", stories)
-    # interviews = serializers.serialize("json", interviews)
     # make json data
     context = json.dumps({
         'project': project,
-        # 'videos': videos,
-        # 'stories': stories,
-        # 'interviews': interviews,
     })
     # ajax response
     return JsonResponse(context,safe=False)
@@ -91,11 +84,24 @@ def getVideos(request, project_id):
 def getStories(request, project_id):
     project = Project.objects.filter(pk = project_id)
     # get all the interviews sorted by date
-    stories = Story.objects.filter(project = project)[:10]
+    stories = Story.objects.filter(project = project)
     # return listing(request, stories)
     context = {
         'data':listing(request, stories),
         'str':'story',
+    }
+    return render(request, 'projects/project_related_content.html', context)
+
+def getContent(request, project_id):
+    project = Project.objects.filter(pk = project_id)
+    # get all the content sorted by date
+    stories = Story.objects.filter(project = project)
+    videos = Video.objects.filter(project = project)
+    interviews = Interview.objects.filter(project = project)
+    result_list = sorted(chain(stories, videos, interviews),key=attrgetter('date_created'))
+    # return listing(request, stories)
+    context = {
+        'data':listing(request, result_list),
     }
     return render(request, 'projects/project_related_content.html', context)
 
@@ -106,7 +112,6 @@ def interviewDetails(request, interview_id):
         'data':interview,
     })
     return JsonResponse(context, safe=False)
-
 
 def storyDetails(request, story_id):
     story = Story.objects.filter(pk = story_id)
@@ -121,26 +126,5 @@ def videoDetails(request, video_id):
     video =  serializers.serialize("json", video)
     context = json.dumps({
         'data':video,
-    })
-    return JsonResponse(context, safe=False)
-
-def loadMoreStory(request):
-    story = Story.objects.all()[:10];
-    context = json.dumps({
-        'story':story,
-    })
-    return JsonResponse(context, safe=False)
-
-def loadMoreVideo(request):
-    video = Video.objects.all()[:10];
-    context = json.dumps({
-        'video':video,
-    })
-    return JsonResponse(context, safe=False)
-
-def loadMoreInterview(request):
-    Interview = Interview.objects.all()[:10];
-    context = json.dumps({
-        'interview':interview,
     })
     return JsonResponse(context, safe=False)

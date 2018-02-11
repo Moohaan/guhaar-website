@@ -13,7 +13,7 @@ div.team_container{
 	&>div:first-child{
 		padding: 0 0 20px;
 		margin-bottom: 20px;
-		border-bottom: 2px solid $red;
+		border-bottom: 2px solid $gray;
 	}
 	&>div:nth-of-type(2){
 		position: relative;
@@ -58,7 +58,7 @@ div.team_container{
 				p{
 					margin: 0;
 					opacity: 0;
-					color: $red;
+					color: $gray;
 					font-size: 16px;
 					transition: opacity 0.5s linear;
 				}
@@ -68,7 +68,7 @@ div.team_container{
 					font-family: merriweather, 'serif';
 				}
 				h4,p{
-					text-shadow: 3px 3px 6px $black;
+					// text-shadow: 3px 3px 6px $black;
 					text-transform: capitalize;
 				}
 			}

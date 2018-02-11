@@ -7,6 +7,9 @@ class Team(models.Model):
     short_description = models.CharField(max_length=100,default=None)
     description = models.TextField()
 
+    def __str__(self):
+        return self.short_description
+
 class Member(models.Model):
     name = models.CharField(max_length=100)
     image = CloudinaryField('image')

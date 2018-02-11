@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.shortcuts import render
 from projects.models import Story
 from . import settings
-import pdb
+# import pdb
 # Create your views here.
 
 def aboutus(request):

@@ -22,15 +22,15 @@ The aim is to bring in light many more important issues in future. To make it su
             </div>-->
             <div class="project object" id ="{{ project.pk }}" object-type = "projects">
               {# <img src="{{ project.image.url }}" alt="{{project.title}}">#}
-              {% cloudinary project.image height=350 crop='fill'%}
+              {% cloudinary project.image height=200 crop='fill'%}
               <div class="project_details object_details">
                 <h4>{{ project.title }}</h4>
                 <span>{{ project.date_started }}</span>
-                <p>{{ project.description | linebreaks | slice:":500" }}</p>
+                <p>{{ project.description | slice:":100" }}</p>
               </div>
-              <h5>Related to this project</h5>
+              {# <h5>Related to this project</h5> #}
               <div class="project_related_content">
-                <div id="stories">
+                <!--<div id="stories">
                   <a href="{% url 'project_stories' project.pk %}">
                     <h1>Articles</h1>
                   </a>
@@ -43,6 +43,11 @@ The aim is to bring in light many more important issues in future. To make it su
                 <div id="interviews">
                   <a href="{% url 'project_interviews' project.pk %}">
                     <h1>Interviews</h1>
+                  </a>
+                </div>-->
+                <div id="project_content">
+                  <a href="{% url 'project_content' project.pk %}">
+                    <span>Browse more</span>
                   </a>
                 </div>
               </div>

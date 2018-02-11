@@ -3,12 +3,22 @@
 body{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
-    background-color: $yellow;
-  	color: $black;
-    font-size: 16px;
-    p{
-      // font-family: 'Alegreya', serif;
-      // text-transform: uppercase;
+    background-color: $white;
+  	color: $gray;
+    // font-size: 16px;
+    // text-align: center;
+    /*.container{
+      width: 1100px;
+      margin: auto;
+    }*/
+    .container{
+      p{
+        letter-spacing: 1px;
+        line-height: 20px;
+      }
+    }
+    h1{
+      text-transform: uppercase;
     }
     ul{
       padding: 0;
@@ -16,6 +26,7 @@ body{
     }
     li{
       list-style-type: none;
+      color: $gray;
     }
 }
 .container::before, .container::after{
@@ -26,7 +37,8 @@ body{
   margin-top: 130px;
   h1{
     font-size: 60px;
-    text-shadow: 2px 2px 4px $black;
+    // text-shadow: 2px 2px 4px $gray;
+    text-transform: capitalize;
   }
   p{
     letter-spacing: 2px;
@@ -51,7 +63,7 @@ a{
 }
 
 h1,h2,h3,h4,h5,h6{
-    color: $red;
+    color: $yellow;
     font-weight: bolder;
 }
 // h1,h2,h3,h4,h5,h6{
@@ -65,7 +77,8 @@ form {
   margin: auto;
   margin: 40px auto;
   padding: 10px 25px 50px;
-  box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
+  // box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
+  box-shadow: 0 0 4px -2px $black;
   p{
     margin: 20px 0;
     label{
@@ -76,20 +89,17 @@ form {
     }
   }
 }
-.form-control{ //input
-  background-color: $gray;
-  color: $black;
-  border: 0;
-}
+// .form-control{ //input
+//   background-color: $gray;
+//   color: $black;
+//   border: 0;
+// }
 
 // *******  Navigation Bar starts ******
 
 .navbar-default {
-    background-color: $black;
+    background-color: $white;
     border-color: $red;
-    span{
-      color: $red;
-    }
     .navbar-nav>li{
       &>a{
         color: $red;
@@ -104,9 +114,14 @@ form {
         }
       }
     }
+    .navbar-collapse {
+      padding-top: 50px;
+    }
+    .container{}
 }
 .navbar-header{
   position: relative;
+  padding-bottom: 40px;
   >button{
     position: absolute;
     bottom: 0;
@@ -117,16 +132,26 @@ form {
 
 .navbar {
   margin-bottom: 0;
+  // padding: 15px 0;
+  box-shadow: 0 0 6px -3px $black;
+  border: 0;
   .logo{
-    display: inline-block;
-    padding: 24px 15px 0;
+    // display: inline-block;
+    // padding: 24px 15px 0;
+    text-align: center;
+    h6{
+      color: $red;
+      text-transform: uppercase;
+    }
     .navbar-brand{
-      padding: 15px;
+      // padding: 0px;
+      display: flex;
+      flex-direction: column;
     }
     }
   img{
-    display: inline;
-    margin-right: 20px;
+    display: inline-block;
+    // margin-right: 20px;
   }
   li{
     a{
@@ -136,7 +161,23 @@ form {
     }
   }
 }
-
+.icons{
+  position: fixed;
+  bottom: 35%;
+  right: 0;
+  z-index: 1100;
+  ul{
+    background-color: $white;
+    border: solid 1px $red;
+    li{
+      float: none;
+      font-size: 24px;
+      a:hover{
+        border-bottom: 0;
+      }
+    }
+  }
+}
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: $gray;
 }
@@ -151,9 +192,9 @@ div.modal {
   z-index: 10;
 	display: none;
   overflow: auto;
-	background-color: $yellow;
+	background-color: $gray;
   box-shadow: 0 0 20px $black;
-
+  color: $white;
 	&>div{
 		padding: 30px 30px;
 	}
@@ -183,9 +224,20 @@ div.modal {
   }
 }
 
-@media (max-width: 1199px) {
-    div.modal {
-        overflow: scroll;
+@media (max-width: 768px) {
+    body {
+        // background-color: yellow;
+        .welcome{
+          h1{
+            font-size: 36px;
+          }
+        }
+        h1{
+            font-size: 24px;
+          }
+          p{
+            font-size: 12px;
+          }
     }
 }
 // *******  Modal Ends ******
@@ -197,7 +249,6 @@ div.modal {
   span>a{
     @include button-style;
     margin: 0 25px;
-    box-shadow: 0 0 10px $black;
     border-radius: 0;
     text-decoration: none;
   }
@@ -215,7 +266,7 @@ footer{
   margin-top: 100px;
   display: flex;
   flex-wrap: wrap;
-  border-top: solid 2px $red;
+  border-top: solid 2px $gray;
 
   &>div{
     margin: 30px 10px;
@@ -231,11 +282,11 @@ footer{
     }
     li>a{
       font-size: 12px;
-      color: $black;
+      color: $gray;
     }
   }
   input{
-    margin-top: 5px;
+    margin-top: 1em;
   }
 
   // TODO: media query
@@ -244,7 +295,8 @@ footer{
     input{
       border: 0;
       padding: 6px 15px;
-      background-color: $gray;
+      border: solid 1px $gray;
+      // background-color: $gray;
       text-transform: capitalize;;
     }
   }

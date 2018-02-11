@@ -75,19 +75,19 @@ function populateModal(str,json){
 
       if(str=="projects"){
           data = JSON.parse(json.project)[0].fields;
-          src = "http://res.cloudinary.com/guhaar/"+data.image;
+          src = "http://res.cloudinary.com/guhaar/" + data.image;
           alt = data.title;
-          insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
+          insertDataInDom(modalSelector,'<img src=' + src + ' alt=' + alt +'>');
       }else{
           data = JSON.parse(json.data)[0].fields;
 
           if(data.url){
             insertDataInDom(modalSelector, data.url);
-
-          }else{
-            src = "http://res.cloudinary.com/guhaar/"+data.image;
+          }
+          else{
+            src = "http://res.cloudinary.com/guhaar/" + data.image;
             alt = data.title;
-            insertDataInDom(modalSelector,'<img src='+src+' alt='+alt+'>');
+            insertDataInDom(modalSelector,'<img src=' + src + ' alt =' + alt + '>');
           }
       }
       modalSelector.find('h2').html(data.title);

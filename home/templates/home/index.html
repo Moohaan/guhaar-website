@@ -55,41 +55,49 @@ The aim is to bring in light many more important issues in future. To make it su
   </div>
   <div>
     <div class="stories objects">
-      {% for story in stories %}
-      <div id="{{ story.pk }}" class="object" object-type="story" url="{{ story.image.url }}">
-        <div class="text-left object_details">
-          <h4>{{ story.title }}<span> by {{ story.author }}</span></h4>
-          <p>{{story.date_started}}</p>
-          <p>{{ story.description |slice:":500" }}</p>
-        </div>
-        <div>
-          {% cloudinary story.image width=300 crop='fill'%}
-        </div>
-      </div>
-      {% endfor %}
-<!--Paginator STARTS-->
-      <div class="pagination">
-          <span class="step-links">
-              {% if stories.has_previous %}
-                  <a href="?page={{ stories.previous_page_number }}">previous</a>
-              {% endif %}
+      {% if stories %}
 
-              <span class="current">
-                  Page {{ stories.number }} of {{ stories.paginator.num_pages }}.
-              </span>
+        {% for story in stories %}
+          <div id="{{ story.pk }}" class="object" object-type="story" url="{{ story.image.url }}">
+            <div class="text-left object_details">
+              <h4>{{ story.title }}<span> by {{ story.author }}</span></h4>
+              <p>{{story.date_started}}</p>
+              <p>{{ story.description |slice:":500" }}</p>
+            </div>
+            <div>
+              {% cloudinary story.image width=300 crop='fill'%}
+            </div>
+          </div>
+        {% endfor %}
+        <!--Paginator STARTS-->
+              <div class="pagination">
+                  <span class="step-links">
+                      {% if stories.has_previous %}
+                          <a href="?page={{ stories.previous_page_number }}">previous</a>
+                      {% endif %}
 
-              {% if stories.has_next %}
-                  <a href="?page={{ stories.next_page_number }}">next</a>
-              {% endif %}
-          </span>
-      </div>
-<!--Paginator ENDS-->
+                      <span class="current">
+                          Page {{ stories.number }} of {{ stories.paginator.num_pages }}.
+                      </span>
+
+                      {% if stories.has_next %}
+                          <a href="?page={{ stories.next_page_number }}">next</a>
+                      {% endif %}
+                  </span>
+              </div>
+        <!--Paginator ENDS-->
+      {% else %}
+        <div class="no_results">
+          <h4>Nothing added yet!</h4>
+        </div>
+      {% endif %}
 
 
       {# <input type="button" value="More" name="more_stories">#}
     </div>
     <div class="recent_feed text-left">
-      <h4>Recent Feeds</h4>
+      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fguhaar%2F&tabs=timeline&width=340&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+      <!--<h4>Recent Feeds</h4>
       <div>
         <h4>first article <span>date</span></h4>
         <p>first content first content first content first content</p>
@@ -101,7 +109,7 @@ The aim is to bring in light many more important issues in future. To make it su
       <div>
         <h4>first article <span>date</span></h4>
         <p>first content first content first content first content  </p>
-      </div>
+      </div>-->
     </div>
     <div class="modal container text-center">
       <div class="close_modal">

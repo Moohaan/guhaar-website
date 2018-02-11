@@ -24,9 +24,6 @@ $orange2: #ffa500;
   box-shadow:0px 0px 10px -4px $black;
   &:hover{
     box-shadow:0px 0px 8px -5px $black;
-    h1, h2, h3, h4, h5, h6{
-      text-decoration: underline;
-    }
   }
 }
 
@@ -37,13 +34,6 @@ $orange2: #ffa500;
   background-color: #a3acb1;
   @include box-shadow-hover;
 }
-//
 
-// Main colors
-
-$white: #fbfbfb;
-$black: #000000;
-$gray: #6a6a6a;
-$yellow: #e3c420;
-// $yellow: $white;
-$red: $gray;
+// $orange: #fff;
+$yellow: #fff;
