@@ -12,7 +12,7 @@ import json
 
 # Paginator
 def listing(request, data_list):
-    paginator = Paginator(data_list, 5) # Show 1 results per page
+    paginator = Paginator(data_list, 2) # Show 1 results per page
     page = request.GET.get('page')
     try:
         results = paginator.page(page)

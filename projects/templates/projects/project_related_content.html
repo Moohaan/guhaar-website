@@ -6,6 +6,16 @@
   {% load cloudinary %}
   <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
     <body>
+
+    <!--  <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>-->
+
       <div class="stories_container text-center container">
         <div>
           <h1>related content</h1>
@@ -71,9 +81,10 @@
                   </div>
                 </div>
               </div>
+              <!--<div class="fb-comments" data-href="https://guhaarwebsite.herokuapp.com/" data-numposts="5"></div>-->
             </div>
           </div>
-          <div class="recent_feed text-left">
+          <div class="recent_feed text-center">
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fguhaar%2F&tabs=timeline&width=340&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
             <!--<h4>Recent Feeds</h4>
             <div>

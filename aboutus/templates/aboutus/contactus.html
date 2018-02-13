@@ -2,17 +2,32 @@
 <html>
   {% extends 'base.html' %}
   {% block body %}
+  {% load static %}
     <body>
         <div class="contact_us_form">
           <h1 class="text-center">Send us what you have in mind</h1>
           <form  action="" method="post">
+
             {% csrf_token %}
             {{form.as_p}}
             <button class="btn btn-primary" type="submit" name="button">Submit</button>
+            <!--{% if success_message %}
+              <script type="text/javascript">
+                $.notify("'Success! Thank you for contacting us.'", "success");
+              </script>
+            {% else %}
+              <script type="text/javascript">
+                $.notify('Failed! Please try again.', "error");
+              </script>
+            {% endif %}-->
+
           </form>
         </div>
 
     </body>
   {% endblock body %}
+  {% block scripts %}
+  <script src="{% static '/js/notify.min.js'%}"></script>
+  {% endblock scripts %}
 
 </html>

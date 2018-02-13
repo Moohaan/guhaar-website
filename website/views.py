@@ -44,13 +44,13 @@ class ContactUs(TemplateView):
             html_message = "%s:%s via %s"%(form_name, form_message, form_email)
             from_email = settings.EMAIL_HOST_USER
             to_email = [from_email, 'lmohan717@gmail.com']
-            send_mail(
+            sent = send_mail(
                 subject,
                 form_message,
                 from_email,
                 to_email,
-                fail_silently=False,
+                fail_silently=True,
             )
         # return htt
         form = ContactusForm()
-        return render(request, self.template_name, {'form':form})
+        return render(request, self.template_name, {'form':form,'success_message':sent})

@@ -34,7 +34,7 @@ body{
 }
 
 .welcome{
-  margin-top: 130px;
+  margin-top: 12em;
   h1{
     font-size: 60px;
     // text-shadow: 2px 2px 4px $gray;
@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6{
 //   font-family: 'Alegreya', sans-serif;
 // }
 .contact_us_form{
-  margin-top: 130px;
+  margin-top: 12em;
 }
 form {
   width: 50%;
@@ -115,13 +115,13 @@ form {
       }
     }
     .navbar-collapse {
-      padding-top: 50px;
+      padding-top: 75px;
     }
     .container{}
 }
 .navbar-header{
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 65px;
   >button{
     position: absolute;
     bottom: 0;
@@ -269,7 +269,8 @@ footer{
   border-top: solid 2px $gray;
 
   &>div{
-    margin: 30px 10px;
+    // margin: 30px 10px;
+    margin: 1em;
     flex: 1;
     min-width: 200px;
     p{
