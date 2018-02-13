@@ -43,7 +43,7 @@ class ContactUs(TemplateView):
             subject = 'Guhaar'
             html_message = "%s:%s via %s"%(form_name, form_message, form_email)
             from_email = settings.EMAIL_HOST_USER
-            to_email = [from_email, 'lmohan717@gmail.com']
+            to_email = [from_email, 'contactguhaar@gmail.com']
             sent = send_mail(
                 subject,
                 form_message,
