@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+  {% block body %}
+  {% load static %}
+  {% load cloudinary %}
+  <link rel="stylesheet" href="{% static '/css/details.min.css' %}" type="text/css">
+    <body>
+
+      <div id="fb-root"></div>
+      <script>
+        (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+        (document, 'script', 'facebook-jssdk'));
+      </script>
+
+      <div class="stories_container text-left container">
+        {% if data %}
+          {% for obj in data %}
+            <div class="text-left">
+              <h1>{{obj.title}}</h1>
+              <p>{{obj.description | slice:":20"}}</p>
+            </div>
+            <div>
+              <div class="details">
+                <div>
+                  {% if obj.url %}
+                  {{ obj.url|safe }}
+                  {% else %}
+                  {% cloudinary obj.image height=400 crop='fill'%}
+                  {% endif %}
+                </div>
+                <div class="">
+                  <h2>{{ obj.title }}</h2>
+                  <p> {{ obj.description }} </p>
+                </div>
+                <br>
+                <div class="fb-comments" data-href="https://guhaar.com/{{request.get_full_path}}" data-numposts="5"></div>
+              </div>
+              <div class="related_content">
+                {% if related %}
+                  {% for obj in related %}
+                    <div>
+                      <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
+                        <h4>{{ obj.title }}</h4>
+                      </a>
+                      {% if obj.url %}
+                        {{ obj.url |safe }}
+                      {% else %}
+                        {% cloudinary obj.image height=200 crop='fill'%}
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="no_results">
+                    <h4>Nothing added yet!</h4>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="no_results">
+            <h4>Nothing added yet!</h4>
+          </div>
+        {% endif %}
+      </div>
+    </body>
+  {% endblock body %}
+  {% block scripts %}
+  <script src="{% static '/js/project.js'%}"></script>
+  {% endblock scripts %}
+</html>

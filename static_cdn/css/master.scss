@@ -42,12 +42,13 @@ body{
     // text-transform: capitalize;
   }
   p{
+    font-size: 24px;
     letter-spacing: 2px;
   }
 }
 #myCarousel{
   max-width: 1000px;
-  margin: 50px auto 0;
+  margin: 2em auto 0;
   img{
     min-width: 100%;
     max-height: 80vh;
@@ -228,10 +229,13 @@ div.modal {
 
 @media (max-width: 768px) {
     body {
-        // background-color: yellow;
+        background-color: yellow;
         .welcome{
           h1{
             font-size: 36px;
+          }
+          p{
+            font-size: 16px;
           }
         }
         h1{
@@ -239,6 +243,9 @@ div.modal {
           }
           p{
             font-size: 12px;
+          }
+          form{
+            width: 80%;
           }
     }
 }

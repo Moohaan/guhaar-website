@@ -8,7 +8,7 @@
   <div class="container">
     <div class="text-center welcome">
       <h1>Guhaar</h1>
-      <p>A media social change</p>
+      <p>Media for social change</p>
     </div>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
@@ -24,16 +24,16 @@
           <!--<div>
             <p>Some lines to descibe very shortly what guhaar does</p>
           </div>-->
-          <img class="img-responsive" src="{% static 'images/guhaar.jpg'%}" alt="images1">
+          <img class="img-responsive" src="{% static 'images/img1.jpg'%}" alt="images1">
+        </div>
+
+        <!--<div class="item">
+          <img class="img-responsive" src="{% static 'images/img1.png'%}" alt="images2">
         </div>
 
         <div class="item">
-          <img class="img-responsive" src="{% static 'images/okabe.png'%}" alt="images2">
-        </div>
-
-        <div class="item">
-          <img class="img-responsive" src="{% static 'images/messi.jpeg'%}" alt="images3">
-        </div>
+          <img class="img-responsive" src="{% static 'images/img1.jpeg'%}" alt="images3">
+        </div>-->
       </div>
       <!-- Left and right controls -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -55,33 +55,40 @@ The aim is to bring in light many more important issues in future. To make it su
   </div>
   <div>
     <div class="stories objects">
-      {% if stories %}
-
-        {% for story in stories %}
-          <div id="{{ story.pk }}" class="object" object-type="story" url="{{ story.image.url }}">
-            <div class="text-left object_details">
-              <h4>{{ story.title }}<span> by {{ story.author }}</span></h4>
-              <p>{{story.date_started}}</p>
-              <p>{{ story.description |slice:":500" }}</p>
+      {% if data %}
+        {% for obj in data %}
+          {% csrf_token %}
+          <div id="{{ obj.pk }}" class="object" object-type="{{obj.obj_type}}" url="{{ obj.image.url }}">
+            <div class="text-left">
+              <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
+                <h3>{{ obj.title }}<span> {{ obj.author }}</span></h3>
+              </a>
+              <p>{{obj.date_started}}</p>
+              <p>{{ obj.description |slice:":300" }}</p>
             </div>
             <div>
-              {% cloudinary story.image width=300 crop='fill'%}
+              {% if obj.url %}
+                <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
+                  {{ obj.url|safe }}
+              {% else %}
+                  {% cloudinary obj.image width=300 crop='fill'%}
+              {% endif %}
             </div>
           </div>
         {% endfor %}
         <!--Paginator STARTS-->
               <div class="pagination">
                   <span class="step-links">
-                      {% if stories.has_previous %}
-                          <a href="?page={{ stories.previous_page_number }}">previous</a>
+                      {% if data.has_previous %}
+                          <a href="?page={{ data.previous_page_number }}">previous</a>
                       {% endif %}
 
                       <span class="current">
-                          Page {{ stories.number }} of {{ stories.paginator.num_pages }}.
+                          Page {{ data.number }} of {{ data.paginator.num_pages }}.
                       </span>
 
-                      {% if stories.has_next %}
-                          <a href="?page={{ stories.next_page_number }}">next</a>
+                      {% if data.has_next %}
+                          <a href="?page={{ data.next_page_number }}">next</a>
                       {% endif %}
                   </span>
               </div>
@@ -92,69 +99,12 @@ The aim is to bring in light many more important issues in future. To make it su
         </div>
       {% endif %}
 
-
       {# <input type="button" value="More" name="more_stories">#}
     </div>
     <div class="recent_feed text-center">
       <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fguhaar%2F&tabs=timeline&width=340&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
-      <!--<h4>Recent Feeds</h4>
-      <div>
-        <h4>first article <span>date</span></h4>
-        <p>first content first content first content first content</p>
-      </div>
-      <div>
-        <h4>first article <span>date</span></h4>
-        <p>first content first content first content first content  </p>
-      </div>
-      <div>
-        <h4>first article <span>date</span></h4>
-        <p>first content first content first content first content  </p>
-      </div>-->
-    </div>
-    <div class="modal container text-center">
-      <div class="close_modal">
-        <span>Close</span>
-      </div>
-      <div>
-        <div class="modal_details">
-          <!--refrence Project.js-->
-          <!--<img src="{%static 'images/guhaar.jpg'%}" width="300px">-->
-          <div>
-            <img src = "">
-          </div>
-          <div class="">
-            <h2>Project name</h2>
-            <p>descripmod</p>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <section class="section_with_projects">
-    <!--{% for project in projects %}
-    <div class="text-center">
-       <div class="project_thumb">
-         <img src="{{ project.project_img.url }}" alt="project_thumb">
-       </div>
-       <div class="project_description">
-           <h3>{{ project.project_title }}</h3>
-         <p>{{ project.project_description }} </p>
-       </div>
-     </div>
-     {% endfor %}-->
-
-     <!--{% for video in videos %}
-     <div class="video_thumb">
-       <img src="{{ project.project_img.url}} " alt="Video_thumb">
-     </div>
-     <div class="Video_description">
-         <h3>{{ Video.project_title }}</h3>
-       <p>{{ Video.project_description }} </p>
-     </div>
-     {% endfor %}-->
-   </section>
 </div>
  {% endblock body %}
 

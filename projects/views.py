@@ -12,7 +12,7 @@ import json
 
 # Paginator
 def listing(request, data_list):
-    paginator = Paginator(data_list, 10) # Show 10 results per page
+    paginator = Paginator(data_list, 5) # Show 10 results per page
     page = request.GET.get('page')
     try:
         results = paginator.page(page)
@@ -26,18 +26,17 @@ def listing(request, data_list):
     # render(request, 'projects/project_related_content.html', {'data': results})
 
 def home(request):
-    projects = Project.objects.all()
+    # projects = Project.objects.all()
     videos = Video.objects.all()
     interviews = Interview.objects.all()
     stories = Story.objects.all()
-    stories = listing(request, stories)
-    args = {
-        'projects':projects,
-        'videos':videos,
-        'interviews':interviews,
-        'stories':stories
+    result_list = sorted(chain(stories, videos, interviews),key=attrgetter('date_created'))
+    # return listing(request, stories)
+    context = {
+        'data':listing(request, result_list),
     }
-    return render(request, 'home/index.html', args)
+    return render(request, 'home/index.html', context)
+    # return render(request, 'home/index.html', args)
     # return listing(request, stories)
 
 def project(request):
@@ -128,3 +127,24 @@ def videoDetails(request, video_id):
         'data':video,
     })
     return JsonResponse(context, safe=False)
+
+def contentDetails(request, project_id, object_type, object_id):
+    project = Project.objects.filter(pk = project_id)
+    # result = 0
+    if object_type == 'interview':
+        result = Interview.objects.filter(project = project , pk = object_id)
+        related = Interview.objects.filter(project = project)
+    elif object_type == 'video':
+        result = Video.objects.filter(project = project , pk = object_id)
+        related = Video.objects.filter(project = project)
+    else:
+        result = Video.objects.filter(project = project , pk = object_id)
+        related = Video.objects.filter(project = project)
+    # result_list =  serializers.serialize("json", result)
+    context = {
+        'data':result,
+        'related':related[:5],
+
+    }
+    # return JsonResponse(context, safe=False)
+    return render(request, 'projects/details_view.html', context)

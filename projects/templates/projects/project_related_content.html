@@ -27,11 +27,15 @@
             {% if data %}
               {% for obj in data %}
               <div id="{{ obj.pk }}" class="object" object-type = "{{obj.obj_type}}" url="{{ obj.image.url }}">
-                <div class="text-left object_details">
-                  <h2><b>{{ obj.title }}</b> {{ obj.author }}</h2><span>{{obj.date_started}}</span>
+                <div class="text-left">
+                  <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
+                    <h3><b>{{ obj.title }}</b> {{ obj.author }}</h3>
+                  </a>
+                  <span>{{obj.date_started}}</span>
                   <p>{{ obj.description |slice:":500" }}</p>
                   {# <p class="hide">{{ member.description }}</p>#}
                 </div>
+
                 <div>
                   {% if obj.url %}
                     <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
@@ -40,6 +44,7 @@
                       {% cloudinary obj.image width=300 crop='fill'%}
                   {% endif %}
                 </div>
+
               </div>
               {% endfor %}
 
@@ -66,23 +71,6 @@
               </div>
             {% endif %}
             {# <input type="button" value="More" name="more_stories">#}
-            <div class="modal container text-center">
-              <div class="close_modal">
-                <span>Close</span>
-              </div>
-              <div>
-                <div class="modal_details">
-                  <div>
-                    <img src = "">
-                  </div>
-                  <div class="">
-                    <h2>title</h2>
-                    <p>description</p>
-                  </div>
-                </div>
-              </div>
-              <!--<div class="fb-comments" data-href="https://guhaarwebsite.herokuapp.com/" data-numposts="5"></div>-->
-            </div>
           </div>
           <div class="recent_feed text-center">
             <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fguhaar%2F&tabs=timeline&width=340&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>

@@ -96,7 +96,7 @@ function populateModal(str,json){
 }
 
 objectSelector.on( "click", '.object_details', function( event ) {
-      event.preventDefault();
+      // event.preventDefault();
       closeModalSelector.parent().removeClass("hide");
       closeModalSelector.parent().slideDown(hideTime);
 
