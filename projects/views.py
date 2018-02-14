@@ -138,8 +138,8 @@ def contentDetails(request, project_id, object_type, object_id):
         result = Video.objects.filter(project = project , pk = object_id)
         related = Video.objects.filter(project = project)
     else:
-        result = Video.objects.filter(project = project , pk = object_id)
-        related = Video.objects.filter(project = project)
+        result = Story.objects.filter(project = project , pk = object_id)
+        related = Story.objects.filter(project = project)
     # result_list =  serializers.serialize("json", result)
     context = {
         'data':result,
