@@ -37,7 +37,7 @@
                 </div>
                 <div class="">
                   <h2>{{ obj.title }}</h2>
-                  <p> {{ obj.description }} </p>
+                  <p> {{ obj.description | linebreaks }} </p>
                 </div>
                 <br>
                 <div class="fb-comments" data-href="https://guhaar.com/{{request.get_full_path}}" data-numposts="5"></div>
