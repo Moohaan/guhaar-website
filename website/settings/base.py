@@ -58,7 +58,6 @@ DEFAULT_HOST = 'www'
 DEFAULT_REDIRECT_URL = 'http://www.guhaar.com'
 PARENT_HOST = 'guhaar.com'
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
