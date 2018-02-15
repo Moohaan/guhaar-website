@@ -7,6 +7,7 @@ $( document ).ready(function() {
   var memberSelector = $( ".member" );
   var modalSelector = $(".modal");
   var closeModalSelector = $( ".close_modal" );
+  // var closedDonation = false;
 
   // Hide and Show project modal ***STARTS***
   var hideTime = 200; // used for animating effect
@@ -15,16 +16,6 @@ $( document ).ready(function() {
   var scrollBackId = 0; // Keeping track of where was user when click was triggered to get the user back to the same location on the page
 
   var fetchedObjects = {}; // To keep track of which item is fetched and which is not in order to minimize the Ajax calls
-
-  // Navbar clicks STARTS
-  // scrollToStoriesSelector.on('click', function(event) {
-  //   event.preventDefault();
-  //   console.log('hey');
-  //   $('html, body').animate({
-  //     scrollTop: $(".stories_container").offset().top
-  //   }, scrollTime);
-  // });
-  // Navbar clicks ENDS
 
 function getAjaxResults(url,str,id){
 
@@ -159,11 +150,10 @@ memberSelector.on( "click", function( event ) {
        }, scrollTime);
   });
   // project click handling ** ENDS **
-
   closeModalSelector.on( "click", function( event ) {
       event.preventDefault();
-      $(this).parent().slideUp(hideTime);
-
+      $(this).parents('.banner').slideUp(hideTime);
+      closedDonation = true;
       insertDataInDom(modalSelector, '<img src="" alt="">');
       modalSelector.find('h2').html('');
       modalSelector.find('.modal_details p').html('');
@@ -174,6 +164,18 @@ memberSelector.on( "click", function( event ) {
       }, scrollTime);
 
   });
-
 // Hide and Show project modal  ***ENDS***
+  setTimeout(function() {
+      $("#donation-banner").slideDown(hideTime);
+      setTimeout(function() {
+          $("#donation-banner").slideUp(hideTime);
+      }, 10000);
+  }, 4000);
+
+
+
+
+
+
+
 });

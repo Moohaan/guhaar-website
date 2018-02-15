@@ -6,6 +6,7 @@ cloudinary.config(
   api_key = '896979177588687',
   api_secret = '3ZaITYQmAnz41Qxkl0HzQkTKXeg'
 )
+SECURE_SSL_REDIRECT = False
 
 UPLOADCARE = {
     'pub_key': 'd054d38a036a4221f387',

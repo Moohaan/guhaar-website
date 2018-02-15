@@ -1,5 +1,24 @@
 @import "color.scss";
 
+@mixin close-modal {
+  position: absolute;
+  right: 10px;
+  top: 19px;
+  padding: 0;
+  &:hover{
+    cursor: pointer;
+    color: 0.1*$black;
+  }
+  &>span{
+    padding: 10px 14px;
+    border: 1px solid;
+    border-radius: 20px;
+    /*&:hover{
+      color: $font_color*.2;
+    }*/
+  }
+}
+
 body{
     font-family: 'Lato', sans-serif;
     font-weight: 900;
@@ -11,11 +30,43 @@ body{
       width: 1100px;
       margin: auto;
     }*/
+    #donation-banner{
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      // min-height: 70px;
+      background-color: rgba(0,0,0,0.9);
+      padding: 1em 0;
+      z-index: 1200;
+      // visibility: hidden;
+      display: none;
+      h4{
+        display: inline-block;
+        text-transform: capitalize;
+      }
+      a{
+        margin-left: 1em;
+        // display: inline-block;
+        display: inline-block;
+        @include button-style;
+      }
+      .close_modal{
+        font-size: 10px;
+        @include close_modal;
+        right: -5px;
+        top: 5px;
+        span{
+          border: 0;
+          color: $white;
+        }
+      }
+    }
     .container{
       font-family: 'Merriweather', serif;
       p{
         letter-spacing: 1px;
-        line-height: 20px;
+        line-height: 22px;
       }
     }
     h1{
@@ -34,16 +85,19 @@ body{
   content: unset;
 }
 
-.welcome{
-  margin-top: 12em;
-  h1{
+div.welcome{
+  margin-top: 11em;
+  // position: absolute;
+  &>h1{
     font-size: 60px;
+    margin: 0;
     // text-shadow: 2px 2px 4px $gray;
     // text-transform: capitalize;
   }
-  p{
+  &>p{
     font-size: 24px;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
+    font-weight: 900;
   }
 }
 #myCarousel{
@@ -85,7 +139,7 @@ form {
   p{
     margin: 20px 0;
     label{
-      color: $red;
+      color: $gray;
       font-size: 18px;
       font-weight: 900;
       letter-spacing: 1px;
@@ -102,16 +156,16 @@ form {
 
 .navbar-default {
     background-color: $white;
-    border-color: $red;
+    border-color: $gray;
     .navbar-nav>li{
       &>a{
-        color: $red;
+        color: $gray;
         line-height: 40px;
         font-size: 14px;
         // -webkit-transition: 0.6s;
         transition: all 0.5s linear;
         &:hover, &:focus{
-          // background-color: 0.6*$red;
+          // background-color: 0.6*$gray;
           color: $yellow_background;
           border-bottom: solid $gray 2px;
         }
@@ -136,14 +190,14 @@ form {
 .navbar {
   margin-bottom: 0;
   // padding: 15px 0;
-  box-shadow: 0 0 6px -3px $black;
+  // box-shadow: 0 0 6px -3px $black;
   border: 0;
   .logo{
     // display: inline-block;
     // padding: 24px 15px 0;
     text-align: center;
     h6{
-      color: $red;
+      color: $gray;
       text-transform: uppercase;
     }
     .navbar-brand{
@@ -171,7 +225,7 @@ form {
   z-index: 1100;
   ul{
     background-color: $white;
-    border: solid 1px $red;
+    border: solid 1px $gray;
     li{
       float: none;
       font-size: 24px;
@@ -187,7 +241,6 @@ form {
 
 // *******  Navigation Bar ends ******
 
-
 // *******  Modal starts ******
 
 div.modal {
@@ -202,22 +255,7 @@ div.modal {
 		padding: 30px 30px;
 	}
 	.close_modal{
-		position: absolute;
-    right: 10px;
-    top: 19px;
-    padding: 0;
-		&:hover{
-			cursor: pointer;
-			color: 0.1*$black;
-		}
-		&>span{
-			padding: 10px 14px;
-			border: 1px solid;
-			border-radius: 20px;
-			/*&:hover{
-				color: $font_color*.2;
-			}*/
-		}
+    @include close_modal;
 	}
   .modal_details{
     img{
@@ -266,13 +304,12 @@ div.modal {
 
 // *******  Footer starts ******
 footer {
-  margin-bottom: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
 }
 footer{
 
-  margin-top: 100px;
+  margin: 4em 0;
   display: flex;
   flex-wrap: wrap;
   border-top: solid 2px $gray;

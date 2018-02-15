@@ -18,6 +18,18 @@ $gray: #a3acb1;
 $orange: #d2691e;
 $orange2: #ffa500;
 //
+
+
+// Main colors
+
+$white: #fbfbfb;
+$black: #000000;
+$gray: #6a6a6a;
+$yellow: #e3c420;
+// $yellow: $white;
+$red: $gray;
+
+
 @mixin box-shadow-hover {
   cursor: pointer;
   transition: all 0.2s linear;
@@ -34,16 +46,8 @@ $orange2: #ffa500;
   border: 0;
   border-radius: 4px;
   padding: 10px 20px;
-  background-color: #a3acb1;
+  color: $yellow;
+  background-color: $gray;
   @include box-shadow-hover;
 }
 //
-
-// Main colors
-
-$white: #fbfbfb;
-$black: #000000;
-$gray: #6a6a6a;
-$yellow: #e3c420;
-// $yellow: $white;
-$red: $gray;
