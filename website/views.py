@@ -7,25 +7,6 @@ from . import settings
 # import pdb
 # Create your views here.
 
-def aboutus(request):
-    members = Member.objects.all()
-    args = {
-        'members':members,
-    }
-    # pdb.set_trace()
-    return render(request, 'home/about.html', args)
-
-# def contactus(request):
-#     form = ContactusForm()
-#     return render(request, 'aboutus/contactus.html', {'form':form})
-
-def stories(request):
-    stories = Story.objects.all()
-    args = {
-        'stories':stories,
-    }
-    return render(request, 'projects/stories.html', args)
-
 class ContactUs(TemplateView):
     template_name = 'aboutus/contactus.html'
 

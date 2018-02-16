@@ -7,7 +7,7 @@ import cloudinary.api
 
 # DEBUG = False
 DEBUG = True
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
 
