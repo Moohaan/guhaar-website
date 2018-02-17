@@ -24,10 +24,11 @@ class ContactUs(TemplateView):
             form_email = form.cleaned_data.get('email')
             form_message = form.cleaned_data.get('message')
             subscribe = form.cleaned_data.get('subscribe')
+
             # Check if the person wants to get subscribed
             if subscribe:
                 subscriber = Subscriber.objects.create_subscriber(form_email, form_name)
-                # subscribe.save()
+                # check if email already exist or not IF IT DOES THEN create_subscriber would return False
                 if subscriber:
                     subscriber.save()
                 else:
