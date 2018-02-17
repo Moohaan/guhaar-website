@@ -192,7 +192,7 @@ function subscribeMe(email, name){
             $.notify("Thank you! Your email has been added successfully.", "success");
           }else {
             // if subscriber already exist
-            $.notify("Error! Please Try again. ", "error");
+            $.notify("Your email already exists in our server.", "info");
           }
        },
 
