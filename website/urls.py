@@ -15,7 +15,7 @@ urlpatterns = [
     url(r'^video/(?P<video_id>[0-9]+)/$', projects.views.videoDetails, name='video_details'),
     url(r'^interview/(?P<interview_id>[0-9]+)/$', projects.views.interviewDetails, name='interview_details'),
     # url(r'^project/(?P<project_id>[0-9]+)/stories/', views.stories, name = 'stories_view'),
-    url(r'^', projects.views.home, name='home_view'),
+    url(r'^', include('home.urls')),
 ]
 
 if settings.DEBUG:

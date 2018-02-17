@@ -169,12 +169,50 @@ memberSelector.on( "click", function( event ) {
       $("#donation-banner").slideDown(hideTime);
       setTimeout(function() {
           $("#donation-banner").slideUp(hideTime);
-      }, 10000);
+      }, 20000);
   }, 4000);
 
+// Functionality For subscribers'
+function subscribeMe(email, name){
+  // Sends a post request to create a subscriber
+  $.ajax({
+       url: '/create-subscriber/',
+       type: 'post',
+       data:{
+         'email':email,
+         'name':name,
+         'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val(),
+       },
+       dataType: "json",
+       success: function(data){
+          // var json = JSON.parse(data);
+          // console.log('ajax called!', json.saved);
+          if(json.saved){
+            // if subscriber is created successfully
+            $.notify("Thank you! Your email has been added successfully.", "success");
+          }else {
+            // if subscriber already exist
+            $.notify("Error! Please Try again. ", "error");
+          }
+       },
 
+       error: function (data) {
+         console.log(data);
+         alert('Sorry, try again.');
+       }
 
+   });
 
+}
+
+$('#subscribe-me').on( "click", function( event ) {
+    event.preventDefault();
+    // After subscribeMe is clicked
+    email = $('#email').val();
+    $('#email').val('');
+    name = 'nam';
+    subscribeMe(email, name);
+});
 
 
 

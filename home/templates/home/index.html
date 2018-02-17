@@ -63,7 +63,7 @@ The aim is to bring in light many more important issues in future. To make it su
               <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
                 <h3>{{ obj.title }}<span> {{ obj.author }}</span></h3>
               </a>
-              <p>{{obj.date_started}}</p>
+              <p>{{obj.date_created|timesince}}</p>
               <p>{{ obj.description |slice:":200" }}</p>
             </div>
             <div>

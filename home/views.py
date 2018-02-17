@@ -1,18 +1,22 @@
 from django.shortcuts import render
+from django.http import JsonResponse
+from .models import Subscriber
+import json
 # Create your views here.
-# from projects.models import Project, Video,Interview, Story
-# import pdb
 
-# def home(request):
-#     projects = Project.objects.all()
-#     videos = Video.objects.all()
-#     interviews = Interview.objects.all()
-#     stories = Story.objects.all()
-#     args = {
-#         'projects':projects,
-#         'videos':videos,
-#         'interviews':interviews,
-#         'stories':stories
-#     }
-#     return render(request, 'home/index.html', args)
-    # return HttpResponse('<p>edfwe</p>')
+def createSubscribe(request):
+    "Create subscriber if email does not exist already"
+    if request.method == 'POST' and request.is_ajax():
+        email = request.POST['email']
+        name = email[0:email.find('@')]
+        subscriber = Subscriber.objects.create_subscriber(email,name)
+        report = False
+        if subscriber:
+            subscriber.save()
+            report = True
+        else:
+            report = False
+        context = json.dumps({
+            'saved':report,
+        })
+        return JsonResponse(context, safe=False)

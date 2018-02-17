@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 from aboutus.form import ContactusForm
 from django.core.mail import send_mail
+from django.contrib import messages
 from django.shortcuts import render
 from projects.models import Story
 from . import settings
@@ -32,6 +33,10 @@ class ContactUs(TemplateView):
                 to_email,
                 fail_silently=True,
             )
+            if sent:
+                messages.success(request, 'Thank you! Your message has been sent succefully!')
+            else:
+                messages.error(request, "Error! Try again")
         # return htt
         form = ContactusForm()
-        return render(request, self.template_name, {'form':form,'success_message':sent})
+        return render(request, self.template_name, {'form':form})
