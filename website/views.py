@@ -1,11 +1,12 @@
-from django.views.generic import TemplateView
-from aboutus.form import ContactusForm
-from django.core.mail import send_mail
 from django.contrib import messages
+from django.core.mail import send_mail
 from django.shortcuts import render
-from projects.models import Story
-from . import settings
+from django.views.generic import TemplateView
 # import pdb
+from . import settings
+from home.models import Subscriber
+from aboutus.form import ContactusForm
+from projects.models import Story
 # Create your views here.
 
 class ContactUs(TemplateView):
@@ -18,11 +19,20 @@ class ContactUs(TemplateView):
 
     def post(self, request):
         form = ContactusForm(request.POST or None)
-        if form.is_valid():
+        if request.method == 'POST' and form.is_valid():
             form_name = form.cleaned_data.get('name')
             form_email = form.cleaned_data.get('email')
             form_message = form.cleaned_data.get('message')
-            subject = 'Guhaar'
+            subscribe = form.cleaned_data.get('subscribe')
+            # Check if the person wants to get subscribed
+            if subscribe:
+                subscriber = Subscriber.objects.create_subscriber(form_email, form_name)
+                # subscribe.save()
+                if subscriber:
+                    subscriber.save()
+                else:
+                    pass
+            subject = 'Guhaar India'
             html_message = "%s:%s via %s"%(form_name, form_message, form_email)
             from_email = settings.EMAIL_HOST_USER
             to_email = [from_email, 'contactguhaar@gmail.com']

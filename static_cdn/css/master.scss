@@ -128,29 +128,34 @@ h1,h2,h3,h4,h5,h6{
 // }
 .contact_us_form{
   margin-top: 12em;
+  >h1{
+    // text-align: left;
+    font-size: 28px;
+  }
 }
 form {
   width: 50%;
   margin: auto;
-  margin: 40px auto;
+  margin: 1em auto;
   padding: 10px 25px 50px;
   // box-shadow: 12px 0px 10px -4px $black, -12px 0 10px -4px $black;
-  box-shadow: 0 0 4px -2px $black;
+  // box-shadow: 0 0 4px -2px $black;
   p{
     margin: 20px 0;
     label{
       color: $gray;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 1px;
+      display: inline;
+      // width: 15%;
+      // margin: 5px 0;
     }
   }
 }
-// .form-control{ //input
-//   background-color: $gray;
-//   color: $black;
-//   border: 0;
-// }
+.form-control{ //input
+  font-size: 14px;
+}
 
 // *******  Navigation Bar starts ******
 
