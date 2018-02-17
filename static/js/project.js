@@ -185,7 +185,7 @@ function subscribeMe(email, name){
        },
        dataType: "json",
        success: function(data){
-          // var json = JSON.parse(data);
+          var json = JSON.parse(data);
           // console.log('ajax called!', json.saved);
           if(json.saved){
             // if subscriber is created successfully
