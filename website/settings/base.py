@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # DEBUG = False
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
@@ -23,6 +23,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # Application definition
+ADMINS = (
+    ('Mohan', 'lmohan717@gmail.com'),
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
