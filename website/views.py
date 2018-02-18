@@ -33,7 +33,7 @@ class ContactUs(TemplateView):
                     subscriber.save()
                 else:
                     pass
-            html_message = "%s:%s via %s"%(form_name, form_message, form_email)
+            html_message = "%s:%s \n %s"%(form_name, form_email, form_message)
             from_email = settings.EMAIL_HOST_USER
             subject = '{} via [Guhaar Website]'.format(form_name)
             to_email = [form_email, from_email]
@@ -42,7 +42,6 @@ class ContactUs(TemplateView):
                 html_message,
                 from_email,
                 to_email,
-                # html_message,
                 fail_silently=True,
             )
             if sent:
