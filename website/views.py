@@ -33,16 +33,17 @@ class ContactUs(TemplateView):
                     subscriber.save()
                 else:
                     pass
-            subject = 'Guhaar India'
             html_message = "%s:%s via %s"%(form_name, form_message, form_email)
             from_email = settings.EMAIL_HOST_USER
-            to_email = [from_email, 'contactguhaar@gmail.com']
+            subject = '{} via [Guhaar Website]'.format(form_name)
+            to_email = [form_email, from_email]
             sent = send_mail(
                 subject,
                 form_message,
                 from_email,
                 to_email,
-                fail_silently=False,
+                html_message,
+                fail_silently=True,
             )
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')
