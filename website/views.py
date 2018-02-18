@@ -39,10 +39,10 @@ class ContactUs(TemplateView):
             to_email = [form_email, from_email]
             sent = send_mail(
                 subject,
-                form_message,
+                html_message,
                 from_email,
                 to_email,
-                html_message,
+                # html_message,
                 fail_silently=True,
             )
             if sent:
