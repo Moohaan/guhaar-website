@@ -42,7 +42,7 @@ class ContactUs(TemplateView):
                 form_message,
                 from_email,
                 to_email,
-                fail_silently=True,
+                fail_silently=False,
             )
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')
