@@ -11,7 +11,7 @@
         <div class="text-center about_team">
           <h1>Who Are We</h1>
           {% for team in team %}
-          <p>{{team.description }}</p>
+          <p>{{team.description | linebreaks}}</p>
         </div>
         <div class="team_container text-center">
           <div>

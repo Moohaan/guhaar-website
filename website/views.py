@@ -33,7 +33,7 @@ class ContactUs(TemplateView):
                     subscriber.save()
                 else:
                     pass
-            html_message = "%s:%s \n %s"%(form_name, form_email, form_message)
+            html_message = "%s : %s \n %s"%(form_name, form_email, form_message)
             from_email = settings.EMAIL_HOST_USER
             subject = '{} via [Guhaar Website]'.format(form_name)
             to_email = [form_email, from_email]
@@ -47,7 +47,7 @@ class ContactUs(TemplateView):
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')
             else:
-                messages.error(request, "Error! Try again")
+                messages.error(request, "Error! Please check your email address and try again")
         # return htt
         form = ContactusForm()
         return render(request, self.template_name, {'form':form})
