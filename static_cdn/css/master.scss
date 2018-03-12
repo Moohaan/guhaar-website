@@ -72,11 +72,23 @@ body{
     h1{
       text-transform: uppercase;
     }
+    ol{
+      width: 80%;
+      margin: auto;
+      text-align: left;
+      letter-spacing: 1px;
+      // line-height: 22px;
+      padding: 20px 70px;
+      box-shadow:0px 0px 10px -4px $black;
+      li{
+        margin: 10px 0;
+      }
+    }
     ul{
       padding: 0;
       text-align: left;
     }
-    li{
+    ul>li{
       list-style-type: none;
       color: $gray;
     }
