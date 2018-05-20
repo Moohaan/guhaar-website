@@ -46,16 +46,33 @@ def project(request):
     }
     return render(request, 'projects/projects.html', ctx)
 
+def interview(request):
+    args = Interview.objects.all()
+    ctx = {
+        'data':listing(request, args),
+    }
+    return render(request, 'projects/interview.html', ctx)
+
 def projectDetails(request, project_id):
     project = Project.objects.filter(pk = project_id)
     # serialize all the data
-    project =  serializers.serialize("json", project)
+    # project =  serializers.serialize("json", project)
     # make json data
-    context = json.dumps({
-        'project': project,
-    })
+    # context = json.dumps({
+    #     'project': project,
+    #
+    stories = Story.objects.filter(project = project)
+    videos = Video.objects.filter(project = project)
+    interviews = Interview.objects.filter(project = project)
+    result_list = sorted(chain(stories, videos, interviews),key=attrgetter('date_created'))
+
+    context = {
+        'data': project,
+        'related':result_list[:5],
+    }
     # ajax response
-    return JsonResponse(context,safe=False)
+    # return JsonResponse(context,safe=False)
+    return render(request, 'projects/project_details.html', context)
 
 
 def getInterviews(request, project_id):

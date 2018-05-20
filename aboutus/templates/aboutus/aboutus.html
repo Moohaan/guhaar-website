@@ -9,12 +9,14 @@
     <body>
       <div class="container team_body">
         <div class="text-center about_team">
-          <h1>Who Are We</h1>
+          <div>
+            <h1>Who Are We</h1>
+          </div>
           {% for team in team %}
           <p>{{team.description | linebreaks}}</p>
 
           <h3>BELIEFS</h3>
-          <ol type="1">
+          <ul>
             <li>Poor and downtrodden has as much of a right to be heard as the
             privileged.</li>
             <li>Journalism should be inclusive and non-monetary which do not
@@ -24,14 +26,14 @@
             coverage.</li>
             <li>Developing the culture of asking questions.</li>
             <li>Creating a bridge between affected and non-affected mass.</li>
-          </ol>
+          </ul>
 
           <h3>WORKSPACE</h3>
           <p>
             Here's what has tentatively been included in the work-space of the Guhaar.
             We will keep adding according to our needs and as the organisation grows.
           </p>
-          <ol type="1">
+          <ul>
             <li>
               To provide media consultancy to the movements. In order to implement, an
               introductory article and a documentary will be made about the whole issue
@@ -63,7 +65,7 @@
               people through our portal. The regular updates will also be given on our
               portal.
             </li>
-          </ol>
+          </ul>
           <br>
           <p>
             Guhaar is working with various local organisations, national level organisations
@@ -76,7 +78,7 @@
           <p>
             Guhaar provides an opportunity to young and enthusiastic people,
           </p>
-          <ol>
+          <ul>
             <li>
               Who have discontent towards the system
             </li>
@@ -101,7 +103,7 @@
             </li>
             <li>
               One will learn how to manage unorganized groups,
-              <ol type="a">
+              <ul>
                 <li>
                   How to be disciplined
                 </li>
@@ -120,9 +122,9 @@
                 <li>
                   The ground realities and knowing the picture behind the Incredible India.
                 </li>
-              </ol>
+              </ul>
             </li>
-          </ol>
+          </ul>
           <br>
           <p>
             Besides this, working with Guhaar also gives an enormous
@@ -147,14 +149,14 @@
                   <div class="name_header">
                     <div>
                       <h4><b>{{ member.name }}</b></h4>
-                      <p>{{ member.short_description }}</p>
+                      <p>{{ member.short_description | slice:":20" }}</p>
                     </div>
                   </div>
                 </div>
               </div>
               {% endfor %}
             </div>
-
+            
             <div class="modal banner text-left">
               <div class="close_modal">
                 <span>Close</span>
@@ -164,11 +166,13 @@
                   <!--{% load static %}-->
                   <img class= "member_thumb" alt="member thumbnail">
                   <h2>Name</h2>
-                  <p>short_descriptimodal_membermodal_memberon</p>
+                <!--  <p>short_descriptimodal_membermodal_memberon</p>-->
+                <p></p>
                 </div>
                 <div class="member_details">
                   <div>
-                    <p>descripmodal_membe rmodal_mem descripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_memdescripmodal_membe rmodal_mem</p>
+                    <!--description-->
+                    <p></p>
                   </div>
                 </div>
               </div>

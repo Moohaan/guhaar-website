@@ -1,17 +1,19 @@
-@import "color.scss";
+@import "base.scss";
 
 div.team_body{
 	padding-bottom: 50px;
 }
 div.about_team{
-
-	margin: 12em auto 2em;
+	margin: $margin_H1 auto 2em;
 	padding-bottom: 50px;
+	/*>div{
+		padding-bottom: 20px;
+	}*/
 }
 div.team_container{
 
 	&>div:first-child{
-		padding: 0 0 20px;
+		padding: 0 0 50px;
 		margin-bottom: 20px;
 		border-bottom: 2px solid $gray;
 	}

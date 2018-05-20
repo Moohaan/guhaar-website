@@ -1,4 +1,4 @@
-@import "color.scss";
+@import "base.scss";
 
 @mixin close-modal {
   position: absolute;
@@ -58,31 +58,44 @@ body{
     }
     .container{
       font-family: 'Merriweather', serif;
-      p{
-        letter-spacing: 1px;
-        line-height: 22px;
+      p, ul{
+        // letter-spacing: 1px;
+        line-height: 30px;
+      }
+      .about_team{
+        p{
+          width: 90%;
+          margin: auto;
+          padding: 10px 60px;
+        }
       }
     }
     h1{
       text-transform: uppercase;
     }
-    ol{
-      width: 90%;
-      margin: auto;
-      text-align: left;
-      letter-spacing: 1px;
-      // line-height: 22px;
-      padding: 20px 60px;
-      box-shadow:0px 0px 10px -4px $black;
-      li{
-        margin: 10px 0;
+    .about_team{
+      h3{
+        padding-top: 40px;
       }
-      ol{
-        // width: 90%;
+      ul{
+        width: 90%;
         margin: auto;
         text-align: left;
-        padding: 0;
-        box-shadow:0px 0px 0px  $black;
+        // letter-spacing: 1px;
+        // line-height: 22px;
+        padding: 20px 60px;
+        box-shadow:0px 0px 10px -4px $black;
+        li{
+          margin: 10px 0;
+          list-style-type: disc;
+        }
+        ul{
+          // width: 90%;
+          margin: auto;
+          text-align: left;
+          padding: 0;
+          box-shadow:0px 0px 0px  $black;
+        }
       }
     }
     ul{
@@ -99,11 +112,13 @@ body{
 }
 
 div.welcome{
-  margin-top: 11em;
+  margin: 5em 0;
   // position: absolute;
   &>h1{
     font-size: 60px;
     margin: 0;
+    margin: 0.3em;
+    letter-spacing: 10px;
     // text-shadow: 2px 2px 4px $gray;
     // text-transform: capitalize;
   }
@@ -144,7 +159,7 @@ h1,h2,h3,h4,h5,h6{
 //   font-family: 'Alegreya', sans-serif;
 // }
 .contact_us_form{
-  margin-top: 12em;
+  margin-top: $margin_H1;
   >h1{
     // text-align: left;
     font-size: 28px;
@@ -161,7 +176,7 @@ form {
     margin: 20px 0;
     label{
       color: $gray;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 900;
       letter-spacing: 1px;
       display: inline;
@@ -183,7 +198,7 @@ form {
       &>a{
         color: $gray;
         line-height: 40px;
-        font-size: 14px;
+        font-size: 18px;
         border-bottom: 2px solid $white;
         transition: all 0.1s ease-in;
         &:hover, &:focus{
@@ -219,8 +234,9 @@ form {
     // padding: 24px 15px 0;
     text-align: center;
     h6{
-      color: $gray;
-      text-transform: uppercase;
+      // color: $gray;
+      // text-transform: uppercase;
+      font-size: 18px;
     }
     .navbar-brand{
       // padding: 0px;
@@ -234,15 +250,22 @@ form {
   }
   li{
     a{
+      color: $font_color;
       font-size: 14px;
-      display: inline;
+      display: block;
       padding: 9px 15px;
     }
+    >a{
+      display: inline;
+    }
+  }
+  .dropdown-menu{
+    left: 0;
   }
 }
 .icons{
   position: fixed;
-  bottom: 35%;
+  top: 0;
   right: 0;
   z-index: 1100;
   ul{
@@ -273,6 +296,7 @@ div.modal {
 	background-color: $gray;
   box-shadow: 0 0 20px $black;
   color: $white;
+  bottom: unset;
 	&>div{
 		padding: 30px 30px;
 	}
@@ -331,7 +355,7 @@ footer {
 }
 footer{
 
-  margin: 4em 0;
+  margin: $margin_H1 0;
   display: flex;
   flex-wrap: wrap;
   border-top: solid 2px $gray;

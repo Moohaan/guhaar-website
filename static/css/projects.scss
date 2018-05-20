@@ -1,9 +1,9 @@
-@import "color.scss";
+@import "base.scss";
 
 .projects_container>div:first-of-type{
-   margin: 12em auto 2em;
+   margin: $margin_H1 auto $margin_H1;
    border-bottom: 3px solid $gray;
-   padding-bottom: 100px;
+   padding-bottom: 50px;
 }
 .projects{
   display: grid;

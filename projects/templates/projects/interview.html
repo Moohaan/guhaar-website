@@ -1,53 +1,99 @@
 <!DOCTYPE html>
 <html>
   {% extends "base.html" %}
-
   {% block body %}
-
   {% load static %}
+  {% load cloudinary %}
   <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
-  <script src="{% static '/js/project.js'%}"></script>
-
     <body>
-        <div class="stories_container text-center container">
-          <div>
-            <h1>Our Stories</h1>
-            <p> Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
-The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness. </p>
-          </div>
-          <div>
-            <div class="stories">
-              {% for story in stories %}
-              <div id="{{ story.pk }}" class="story" url="{{ story.image.url }}">
+
+    <!--  <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>-->
+
+      <div class="stories_container text-center container">
+        <div>
+          <h1>Interviews</h1>
+          <p> Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
+      The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. </p>
+        </div>
+        <div>
+          <div class="stories objects">
+            {% if data %}
+              {% for obj in data %}
+              <div id="{{ obj.pk }}" class="object" object-type = "{{obj.obj_type}}" url="{{ obj.image.url }}">
                 <div class="text-left">
-                  <h2><b>{{ story.title }}</b></h2><span>{{story.date_started}}</span>
-                  <p>{{ story.description |slice:":500" }}</p>
+                  <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
+                    <h3><b>{{ obj.title }}</b> {{ obj.author }}</h3>
+                  </a>
+                  <span>{{obj.date_started}}</span>
+                  <p>{{ obj.description |slice:":200" }}</p>
                   {# <p class="hide">{{ member.description }}</p>#}
                 </div>
+
                 <div>
-                  <img src="{{ story.image.url }}" alt="{{ story.title }}" width="300px">
+                  {% if obj.url %}
+                    <!--<iframe id="player" type="text/html" width="300px" height="220px" src="{{ obj.url }}" frameborder="0"></iframe>-->
+                      {{ obj.url|safe }}
+                  {% else %}
+                      {% cloudinary obj.image width=300 crop='fill'%}
+                  {% endif %}
                 </div>
+
               </div>
               {% endfor %}
-              <input type="button" value="More" name="more_stories">
+
+<!--Paginator STARTS-->
+              <div class="pagination">
+                  <span class="step-links">
+                      {% if data.has_previous %}
+                          <a href="?page={{ data.previous_page_number }}">previous</a>
+                      {% endif %}
+
+                      <span class="current">
+                          Page {{ data.number }} of {{ data.paginator.num_pages }}.
+                      </span>
+
+                      {% if data.has_next %}
+                          <a href="?page={{ data.next_page_number }}">next</a>
+                      {% endif %}
+                  </span>
+              </div>
+<!--Paginator ENDS-->
+            {% else %}
+              <div class="no_results">
+                <h4>Nothing added yet!</h4>
+              </div>
+            {% endif %}
+            {# <input type="button" value="More" name="more_stories">#}
+          </div>
+          <div class="recent_feed text-center">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fguhaar%2F&tabs=timeline&width=340&height=800&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="800" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+            <!--<h4>Recent Feeds</h4>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content</p>
             </div>
-            <div class="recent_feed text-left">
-              <h4>Recent Feeds</h4>
-              <div>
-                <h4>first article <span>date</span></h4>
-                <p>first content first content first content first content</p>
-              </div>
-              <div>
-                <h4>first article <span>date</span></h4>
-                <p>first content first content first content first content  </p>
-              </div>
-              <div>
-                <h4>first article <span>date</span></h4>
-                <p>first content first content first content first content  </p>
-              </div>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content  </p>
             </div>
+            <div>
+              <h4>first article <span>date</span></h4>
+              <p>first content first content first content first content  </p>
+            </div>-->
           </div>
         </div>
+      </div>
     </body>
   {% endblock body %}
+
+  {% block scripts %}
+  <script src="{% static '/js/project.js'%}"></script>
+  {% endblock scripts %}
 </html>

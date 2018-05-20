@@ -17,7 +17,7 @@
 
   {% endblock head %}
 </head>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
@@ -38,8 +38,18 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{% url 'home_view' %}">Home</a></li>
               <li><a href="{% url 'projects_view' %}">Projects</a></li>
+              <li><a href="{% url 'interviews_view' %}">Interviews</a></li>
               <li class="donate"><a href="https://www.ketto.org/fundraiser/guhaarindia/" target="_blank">Donate</a></li>
-              <li><a href="{% url 'aboutus_view' %}">About Us</a></li>
+              <li class="dropdown">
+                {# <a href="{% url 'aboutus_view' %}" class="btn btn-primary dropdown-toggle">About Us</a> #}
+                <a type="button" class="dropdown-toggle" data-toggle="dropdown">About Us &#9662; </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item background" href="{% url 'aboutus_view' %}">Background</a>
+                  <a class="dropdown-item team" href="{% url 'aboutus_view' %}">Team</a>
+                  <a class="dropdown-item" href="#">Work With Us</a>
+                  <a class="dropdown-item" href="#">Volunteer</a>
+                </div>
+              </li>
               <li><a href="{% url 'contactus_view' %}">Contact Us</a></li>
           </ul>
         </div>
@@ -72,8 +82,8 @@
       <div>
         <h4>Contact Us</h4>
         <p>
-          Email      : contactguhaar@gmail.com <br>
-          Mobile : 097736 54260 <br> <br>
+          Email : contactguhaar@gmail.com <br>
+          Mobile : 097736 54260 <br>
           Himanshu Vila , House no, 91, Gali no, 13, <br> Ramgarh colony, Ram Garh Colony
           <br>
           Basai Dara pur, Ramesh Nagar, Delhi, 110015, India
@@ -84,12 +94,13 @@
             <h4>Navigation</h4>
             <li><a href="{% url 'home_view' %}">Home</a></li>
             <li><a href="{% url 'projects_view' %}">Projects</a></li>
+            <li><a href="{% url 'interviews_view' %}">Interviews</a></li>
             <li class="donate"><a href="#">Donate</a></li>
             <li><a href="{% url 'aboutus_view' %}">About Us</a></li>
             <li><a href="{% url 'contactus_view' %}">Contact Us</a></li>
           </ul>
       </div>
-      <div>
+      <!--<div>
         <ul>
           <h4>Issues</h4>
           <li><a href="{% url 'home_view' %}">Issue1</a></li>
@@ -98,12 +109,12 @@
           <li><a href="{% url 'aboutus_view' %}">Issue4</a></li>
           <li><a href="{% url 'contactus_view' %}">Issue5</a></li>
         </ul>
-      </div>
+      </div>-->
       <div class="subscribe text-center">
         {% csrf_token %}
         <input type="email" placeholder="Email" id="email" required>
         <input type="button" name="subscribe" value="subscribe" id="subscribe-me">
-        <br><br>
+        <br><br><br>
         <span>&copy; {% now "Y" %}. All Rights Reserved</span>
         <br>
         <span>Guhaar</span>

@@ -10,23 +10,24 @@
       <div class="projects_container container text-center">
         <div class="text-center">
           <h1>Projects</h1>
-          <p>Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation.
-The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness.</p>
+          <p>Guhaar is working with various local organisations, national level organisations related to movements and a bunch of socialists and activists, which are not politically biased, so to get the reliable data and the real picture of the situation. The aim is to bring in light many more important issues in future. To make it successful and to increase the outreach of these issues which is not being covered by mainstream media the support of today's youth is needed. Share awareness.</p>
           </div>
-        <div class="projects objects">
+        <div class="projects">
             {% for project in projects %}
             {% csrf_token %}
             <!--<div class="project text-center" id ="{{ project.pk }}">
                 <img src="{{ project.image.url }}" alt="{{project.title}}">
                 <h4>{{ project.title }}</h4>
             </div>-->
-            <div class="project object" id ="{{ project.pk }}" object-type = "projects">
+            <div class="project" id ="{{ project.pk }}" object-type = "projects">
               {# <img src="{{ project.image.url }}" alt="{{project.title}}">#}
               {% cloudinary project.image height=200 crop='fill'%}
               <div class="project_details object_details">
-                <h4>{{ project.title }}</h4>
+                <a href="{% url 'project_details' project.pk %}">
+                  <h4>{{ project.title }}</h4>
+                </a>
                 <span>{{ project.date_started }}</span>
-                <p>{{ project.description | slice:":20" }}</p>
+                {# <p>{{ project.description | slice:":20" }}</p> #}
               </div>
               {# <h5>Related to this project</h5> #}
               <div class="project_related_content">
