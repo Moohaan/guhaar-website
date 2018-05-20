@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  {% extends "base.html" %}
+
+  {% block body %}
+  {% load cloudinary %}
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/team.min.css' %}" type="text/css">
+    <body>
+      <div class="container team_body">
+
+          {% for team in team %}
+        <div class="team_container text-center">
+          <div>
+            <h1>Meet The Team</h1>
+            <p>{{team.short_description}}</p>
+          </div>
+          {% endfor %}
+          <div>
+            <div class="team">
+              {% for member in members %}
+              <div id="{{ member.pk }}" class="member object" url="{{ member.image.url }}">
+                <div class="object_detail">
+                  {# <img src="{{ member.image.url }}" alt="{{ member.name }}">#}
+                  {% cloudinary member.image width=270 height=300 crop='fill'%}
+                  <div class="name_header">
+                    <div>
+                      <h4><b>{{ member.name }}</b></h4>
+                      <p>{{ member.short_description | slice:":20" }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+
+            <div class="modal banner text-left">
+              <div class="close_modal">
+                <span>Close</span>
+              </div>
+              <div class="modal_details">
+                <div class="text-center">
+                  <!--{% load static %}-->
+                  <img class= "member_thumb" alt="member thumbnail">
+                  <h2>Name</h2>
+                <!--  <p>short_descriptimodal_membermodal_memberon</p>-->
+                <p></p>
+                </div>
+                <div class="member_details">
+                  <div>
+                    <!--description-->
+                    <p></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  {% endblock body %}
+
+  {% block scripts %}
+      <script src="{% static '/js/project.js'%}"></script>
+  {% endblock scripts %}
+</html>

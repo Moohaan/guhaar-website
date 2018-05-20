@@ -62,9 +62,14 @@ The aim is to bring in light many more important issues in future. To make it su
           <div id="{{ obj.pk }}" class="object" object-type="{{obj.obj_type}}" url="{{ obj.image.url }}">
             <div class="text-left">
               <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
-                <h3>{{ obj.title }}<span> {{ obj.author }}</span></h3>
+                <h3>{{ obj.title }}</h3>
               </a>
-              <p>{{obj.date_created|timesince}}</p>
+              <p class="date_created">
+                {{obj.date_created|timesince}} ago
+                {% if obj.author %}
+                , by <span>{{ obj.author }}</span>
+                {% endif %}
+              </p>
               <p>{{ obj.description |slice:":200" }}</p>
             </div>
             <div>

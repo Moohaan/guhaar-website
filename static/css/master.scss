@@ -240,7 +240,8 @@ form {
     }
     .navbar-brand{
       // padding: 0px;
-      display: flex;
+      // display: flex;
+      width: 160px;
       flex-direction: column;
     }
     }
@@ -281,7 +282,7 @@ form {
   }
 }
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-    border-color: $gray;
+    border-color: $white;
 }
 
 // *******  Navigation Bar ends ******

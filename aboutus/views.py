@@ -14,6 +14,16 @@ def aboutus(request):
     }
     # pdb.set_trace()
     return render(request, 'aboutus/aboutus.html', args)
+
+def team(request):
+    members = Member.objects.all()
+    team = Team.objects.all()
+    args = {
+        'members':members,
+        'team':team,
+    }
+    # pdb.set_trace()
+    return render(request, 'aboutus/team.html', args)
     # return render(request, 'aboutus/contactus.html')
 
 def memberDetails(request, member_id):

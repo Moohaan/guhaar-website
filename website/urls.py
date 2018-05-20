@@ -4,13 +4,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from .views import ContactUs
 from . import views
-import projects
+import projects, aboutus
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^projects/', include('projects.urls')),
     url(r'^contactus/', ContactUs.as_view(), name='contactus_view'),
     url(r'^aboutus/', include('aboutus.urls')),
+    url(r'^team/$', aboutus.views.team, name='team_view'),
     url(r'^story/(?P<story_id>[0-9]+)/$', projects.views.storyDetails, name='story_details'),
     url(r'^video/(?P<video_id>[0-9]+)/$', projects.views.videoDetails, name='video_details'),
     url(r'^interview/(?P<interview_id>[0-9]+)/$', projects.views.interviewDetails, name='interview_details'),
