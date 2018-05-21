@@ -63,8 +63,12 @@ body{
         line-height: 30px;
       }
       .about_team{
-        p{
-          width: 90%;
+        ul>p:first-child{
+          font-size: 16px;
+          color: $gray*0.8;
+        }
+        >p{
+          // width: 90%;
           margin: auto;
           padding: 10px 60px;
         }
@@ -241,12 +245,13 @@ form {
     .navbar-brand{
       // padding: 0px;
       // display: flex;
-      width: 160px;
+      // width: 160px;
       flex-direction: column;
     }
     }
   img{
     display: inline-block;
+    width: 60px;
     // margin-right: 20px;
   }
   li{
@@ -266,7 +271,7 @@ form {
 }
 .icons{
   position: fixed;
-  top: 0;
+  top: 20%;
   right: 0;
   z-index: 1100;
   ul{

@@ -65,9 +65,9 @@ The aim is to bring in light many more important issues in future. To make it su
                 <h3>{{ obj.title }}</h3>
               </a>
               <p class="date_created">
-                {{obj.date_created|timesince}} ago
+                {{obj.date_created}}
                 {% if obj.author %}
-                , by <span>{{ obj.author }}</span>
+                , <span>{{ obj.author }}</span>
                 {% endif %}
               </p>
               <p>{{ obj.description |slice:":200" }}</p>

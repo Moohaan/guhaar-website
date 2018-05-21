@@ -16,7 +16,7 @@
   .project{
     position: relative;
     background-color: $gray;
-    img{
+    img, iframe{
       width: 100%;
       transition: all .2s ease-out;
     }
@@ -30,7 +30,7 @@
     .project_details{
       @include box-shadow-hover;
       width: 70%;
-      margin: auto;
+      margin: auto auto 15px;
       margin-top: -15%;
       padding: 25px 10px;
       position: relative;

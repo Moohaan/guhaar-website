@@ -13,7 +13,10 @@
             <h1>Who Are We</h1>
           </div>
           {% for team in team %}
-          <p>{{team.description | linebreaks}}</p>
+          <ul>
+
+            {{team.description | linebreaks}}
+          </ul>
 
           <h3>BELIEFS</h3>
           <ul>
