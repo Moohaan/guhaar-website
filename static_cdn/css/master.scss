@@ -63,7 +63,7 @@ body{
         line-height: 30px;
       }
       .about_team{
-        ul>p:first-child{
+        ul>p:first-child, >p{
           font-size: 16px;
           color: $gray*0.8;
         }
@@ -116,7 +116,7 @@ body{
 }
 
 div.welcome{
-  margin: 5em 0;
+  margin: 5em 0 0;
   // position: absolute;
   &>h1{
     font-size: 60px;
@@ -397,6 +397,9 @@ footer{
       border: solid 1px $gray;
       // background-color: $gray;
       text-transform: capitalize;;
+    }
+    span{
+      line-height: 30px;
     }
   }
 
