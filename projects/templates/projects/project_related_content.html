@@ -29,11 +29,15 @@
               <div id="{{ obj.pk }}" class="object" object-type = "{{obj.obj_type}}" url="{{ obj.image.url }}">
                 <div class="text-left">
                   <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
-                    <h3><b>{{ obj.title }}</b> {{ obj.author }}</h3>
+                    <h3>{{ obj.title }}</h3>
                   </a>
-                  <span>{{obj.date_started}}</span>
+                  <p class="date_created">
+                    {{obj.date_created}}
+                    {% if obj.author %}
+                    , <span>{{ obj.author }}</span>
+                    {% endif %}
+                  </p>
                   <p>{{ obj.description |slice:":200" }}</p>
-                  {# <p class="hide">{{ member.description }}</p>#}
                 </div>
 
                 <div>
