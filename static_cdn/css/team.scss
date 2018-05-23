@@ -61,6 +61,9 @@ div.team_container{
 				justify-content: center;
 				align-items: center;
 				padding-bottom: 4px;
+				margin: 0;
+				box-shadow: 0px 0px 10px -4px $gray;
+				background-color: rgba(0,0,0,0.5);
 				p{
 					margin: 0;
 					opacity: 0;
@@ -71,6 +74,7 @@ div.team_container{
 				h4{
 					color: $yellow;
 					font-size: 18px;
+					margin-bottom: 0;
 					font-family: merriweather, 'serif';
 				}
 				h4,p{

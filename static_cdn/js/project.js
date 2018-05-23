@@ -11,7 +11,7 @@ $( document ).ready(function() {
 
   // Hide and Show project modal ***STARTS***
   var hideTime = 200; // used for animating effect
-  var offSet = 130; // offset from the top if the body: USED WHILE SCROLLING THE HTML BODY
+  var offSet = 50; // offset from the top if the body: USED WHILE SCROLLING THE HTML BODY
   var scrollTime = 900;
   var scrollBackId = 0; // Keeping track of where was user when click was triggered to get the user back to the same location on the page
 
