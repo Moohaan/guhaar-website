@@ -29,7 +29,7 @@
               <div id="{{ obj.pk }}" class="object" object-type = "{{obj.obj_type}}" url="{{ obj.image.url }}">
                 <div class="text-left">
                   <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
-                    <h3>{{ obj.title }}</h3>
+                    <h3>{{ obj.title |slice:":25" }}</h3>
                   </a>
                   <p class="date_created">
                     {{obj.date_created}}
