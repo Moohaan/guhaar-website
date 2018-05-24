@@ -346,6 +346,7 @@ div.modal {
 
 .pagination{
   color: $black;
+  // margin-top: 30px;
   span>a{
     @include button-style;
     margin: 0 25px;

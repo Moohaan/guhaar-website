@@ -12,7 +12,7 @@ import json
 
 # Paginator
 def listing(request, data_list):
-    paginator = Paginator(data_list, 5) # Show 10 results per page
+    paginator = Paginator(data_list, 9) # Show 10 results per page
     page = request.GET.get('page')
     try:
         results = paginator.page(page)
@@ -42,7 +42,7 @@ def home(request):
 def project(request):
     args = Project.objects.all()
     ctx = {
-        'projects':args
+        'data':listing(request, args),
     }
     return render(request, 'projects/projects.html', ctx)
 
