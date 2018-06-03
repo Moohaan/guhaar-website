@@ -1,7 +1,7 @@
 @import "base.scss";
 
 .projects_container>div:first-of-type{
-   margin: $margin_H1 auto $margin_H1;
+   margin: $margin_H1 auto 2em;
    border-bottom: 3px solid $gray;
    padding-bottom: 50px;
 }
