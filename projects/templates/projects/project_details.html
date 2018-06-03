@@ -54,7 +54,7 @@
 
                     <div>
                       <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}">
-                        <h4>{{ obj.title |slice:":25" }}</h4>
+                        <h4>{{ obj.title |slice:":70" }}</h4>
                       </a>
                       {% if obj.url %}
                         {{ obj.url |safe }}

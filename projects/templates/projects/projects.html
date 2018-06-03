@@ -24,7 +24,7 @@
               {% cloudinary project.image height=200 crop='fill'%}
               <div class="project_details object_details">
                 <a href="{% url 'project_details' project.pk %}">
-                  <h4>{{ project.title |slice:":25"}}</h4>
+                  <h4>{{ project.title |slice:":70"}}</h4>
                 </a>
                 <span>{{ project.date_started }}</span>
                 {# <p>{{ project.description | slice:":20" }}</p> #}
