@@ -30,7 +30,7 @@ def home(request):
     videos = Video.objects.all()
     interviews = Interview.objects.all()
     stories = Story.objects.all()
-    result_list = sorted(chain(stories, videos, interviews),key=attrgetter('date_created'))
+    result_list = sorted(chain(stories, videos, interviews),key=attrgetter('date_created'),reverse=True)
     # return listing(request, stories)
     context = {
         'data':listing(request, result_list),
