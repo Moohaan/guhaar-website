@@ -5,8 +5,8 @@ import dj_database_url
 import cloudinary.uploader
 import cloudinary.api
 
-# DEBUG = False
-DEBUG = True
+DEBUG = False/
+# DEBUG = True
 SECURE_SSL_REDIRECT = False
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
