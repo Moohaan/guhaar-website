@@ -13,7 +13,7 @@
         <div class="team_container text-center">
           <div>
             <h1>Meet The Team</h1>
-            <p>{{team.short_description}}</p>
+            <p>{{team.short_description |safe }}</p>
           </div>
           {% endfor %}
           <div>

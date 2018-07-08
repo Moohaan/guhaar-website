@@ -70,7 +70,7 @@ The aim is to bring in light many more important issues in future. To make it su
                 , <span>{{ obj.author }}</span>
                 {% endif %}
               </p>
-              <p>{{ obj.description |slice:":200" }}</p>
+              <p>{{ obj.description |safe |slice:":200" }}</p>
             </div>
             <div>
               {% if obj.url %}

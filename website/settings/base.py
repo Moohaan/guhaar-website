@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'home',
     'aboutus',
     'cloudinary',
+    'ckeditor',
+    'ckeditor_uploader',
     # 'pyuploadcare',
 ]
 
@@ -141,3 +143,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 # ADMIN_MEDIA_PREFIX = '/media/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_cdn")
+
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}

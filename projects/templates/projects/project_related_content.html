@@ -37,7 +37,7 @@
                     , <span>{{ obj.author }}</span>
                     {% endif %}
                   </p>
-                  <p>{{ obj.description |slice:":200" }}</p>
+                  <p>{{ obj.description |safe |slice:":200" }}</p>
                 </div>
 
                 <div>
