@@ -5,13 +5,14 @@ import dj_database_url
 import cloudinary.uploader
 import cloudinary.api
 
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 SECURE_SSL_REDIRECT = False
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 
 DATABASES = { 'default': dj_database_url.config() }
 
