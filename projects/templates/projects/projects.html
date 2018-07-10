@@ -21,10 +21,10 @@
             </div>-->
             <div class="project" id ="{{ project.pk }}" object-type = "projects">
               {# <img src="{{ project.image.url }}" alt="{{project.title}}">#}
-              {% cloudinary project.image height=200 crop='fill'%}
+              {% cloudinary project.image height=300 crop='fill'%}
               <div class="project_details object_details">
                 <a href="{% url 'project_details' project.pk %}">
-                  <h4>{{ project.title |slice:":70"}}</h4>
+                  <h3>{{ project.title |slice:":70"}}</h3>
                 </a>
                 <span>{{ project.date_started }}</span>
                 {# <p>{{ project.description | slice:":20" }}</p> #}
@@ -33,7 +33,7 @@
               <div class="project_related_content">
                 <div id="project_content">
                   <a href="{% url 'project_content' project.pk %}">
-                    <span>Browse more</span>
+                    <span>Browse more...</span>
                   </a>
                 </div>
               </div>

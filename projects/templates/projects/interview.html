@@ -23,7 +23,7 @@
               <div class="project_details object_details">
                 {# <a href="{% url 'project_details' obj.pk %}"> #}
                 <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}" >
-                  <h4>{{ obj.title |slice:":70" }}</h4>
+                  <h3>{{ obj.title |slice:":70" }}</h3>
                 </a>
                 <span>{{ obj.date_started }}</span>
               </div>

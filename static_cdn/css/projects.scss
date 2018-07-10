@@ -15,29 +15,27 @@
 
   .project{
     position: relative;
-    background-color: $gray;
+    // background-color: $gray;
     max-width: 540px;
     img, iframe{
       width: 100%;
       transition: all .2s ease-out;
     }
-    h4{
-      // font-size: 24px;
-      letter-spacing: 2px;
-      bottom: 0; left: 0; right: 0;
+    h3{
       text-transform: capitalize;
       // text-shadow: 1px 1px 1px $black;
     }
     .project_details{
-      @include box-shadow-hover;
-      width: 70%;
-      margin: auto auto 15px;
-      margin-top: -15%;
-      padding: 25px 10px;
-      position: relative;
-      background-color: $gray;
-      box-shadow: 0px 0px 5px $black;
-      color: white;
+      cursor: pointer;
+      // width: 70%;
+      // margin: auto auto 15px;
+      // margin-top: -15%;
+      padding: 10px 20px 0;
+      // position: relative;
+      // background-color: #6a6a6a;
+      // box-shadow: 0px 0px 5px #000;
+      color: $gray;
+      text-align: left;
     }
     .project_related_content{
       display: flex;
@@ -46,19 +44,9 @@
         font-size: 16px;
       }
       >div{
-        flex: 1;
-        margin: 10px;
-        @include box-shadow-hover;
-        background-color: $gray;
+        padding: 0 20px 10px;
         a{
-          display: inline-block;
-          min-width: 100%;
-          min-height: 100%;
-          padding: 30px 25px;
-          color: $white;
-          &:hover{
-            text-decoration: underline;
-          }
+          color: $gray*1.5;
         }
       }
     }
