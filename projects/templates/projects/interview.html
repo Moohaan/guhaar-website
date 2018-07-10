@@ -25,7 +25,7 @@
                 <a href="{% url 'content_details' obj.project.pk obj.obj_type obj.pk %}" >
                   <h3>{{ obj.title |slice:":70" }}</h3>
                 </a>
-                <span>{{ obj.date_started }}</span>
+                <span>{{ obj.description|safe |slice:":100" }}</span>
               </div>
             </div>
             {% endfor %}
