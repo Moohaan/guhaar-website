@@ -48,9 +48,8 @@
     @include button-style;
   }
   .date_created{
-    color: $gray*0.8;
+    color: $gray*1.5;
     span{
-      color: $gray*0.4;
       font-size: 16px;
     }
   }

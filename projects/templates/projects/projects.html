@@ -26,13 +26,14 @@
                 <a href="{% url 'project_details' project.pk %}">
                   <h3>{{ project.title |slice:":70"}}</h3>
                 </a>
-                <span>{{ project.date_started }}</span>
+                <span>{{ project.description|slice:":100" }}</span>
                 {# <p>{{ project.description | slice:":20" }}</p> #}
               </div>
               {# <h5>Related to this project</h5> #}
               <div class="project_related_content">
                 <div id="project_content">
-                  <a href="{% url 'project_content' project.pk %}">
+                  <!-- <a href="{% url 'project_content' project.pk %}"> -->
+                    <a href="{% url 'project_details' project.pk %}">
                     <span>Browse more...</span>
                   </a>
                 </div>
