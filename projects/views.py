@@ -150,13 +150,13 @@ def contentDetails(request, project_id, object_type, object_id):
     # result = 0
     if object_type == 'interview':
         result = Interview.objects.filter(project = project , pk = object_id)
-        related = Interview.objects.filter(project = project)
+        related = Interview.objects.exclude(pk = object_id).filter(project = project)
     elif object_type == 'video':
         result = Video.objects.filter(project = project , pk = object_id)
-        related = Video.objects.filter(project = project)
+        related = Video.objects.exclude(pk = object_id).filter(project = project)
     else:
         result = Story.objects.filter(project = project , pk = object_id)
-        related = Story.objects.filter(project = project)
+        related = Story.objects.exclude(pk = object_id).filter(project = project)
     # result_list =  serializers.serialize("json", result)
     context = {
         'data':result,
