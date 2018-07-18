@@ -9,8 +9,11 @@ import dj_database_url
 DEBUG = True
 SECURE_SSL_REDIRECT = False
 
+ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
+SECRET_KEY = os.environ.get('SECRET_KEY')
 DATABASES = { 'default': dj_database_url.config() }
-
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 # # Cloudinary settings using python code. Run before pycloudinary is used.
 cloudinary.config(
   cloud_name = os.environ.get('cloud_name'),
