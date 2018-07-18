@@ -44,7 +44,7 @@ class ContactUs(TemplateView):
                 html_message,
                 from_email,
                 to_email,
-                fail_silently=False,
+                fail_silently=True,
             )
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')
