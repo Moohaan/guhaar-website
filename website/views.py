@@ -35,6 +35,7 @@ class ContactUs(TemplateView):
                     pass
             html_message = "%s : %s \n %s"%(form_name, form_email, form_message)
             from_email = settings.EMAIL_HOST_USER
+            from_pass  = settings.EMAIL_HOST_PASSWORD
             subject = '{} via [Guhaar Website]'.format(form_name)
             to_email = [form_email, from_email]
             sent = send_mail(
@@ -42,7 +43,7 @@ class ContactUs(TemplateView):
                 html_message,
                 from_email,
                 to_email,
-                fail_silently=True,
+                fail_silently=False,
             )
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')

@@ -4,7 +4,10 @@
   {% block body %}
   {% load static %}
   {% load cloudinary %}
-  <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
+  {% block head %}
+    <meta name="google-site-verification" content="ll07eM8k3SZjn13Q8rCZxhtErsrqmXvp8v1-lDSGpRg" />
+    <link rel="stylesheet" href="{% static '/css/stories.min.css' %}" type="text/css">
+  {% endblock head %}
   <div class="container">
     <div class="text-center welcome">
       <h1>Guhaar</h1>
