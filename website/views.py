@@ -7,7 +7,7 @@ from . import settings
 from home.models import Subscriber
 from aboutus.form import ContactusForm
 from projects.models import Story
-from .emails import SendMails
+# from .emails import SendMails
 # Create your views here.
 
 class ContactUs(TemplateView):
