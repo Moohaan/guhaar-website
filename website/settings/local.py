@@ -1,5 +1,5 @@
 from website.settings.base import *
-SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 cloudinary.config(
   cloud_name = 'guhaar',

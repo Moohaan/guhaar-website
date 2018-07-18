@@ -7,6 +7,7 @@ from . import settings
 from home.models import Subscriber
 from aboutus.form import ContactusForm
 from projects.models import Story
+from .emails import SendMails
 # Create your views here.
 
 class ContactUs(TemplateView):
@@ -24,7 +25,6 @@ class ContactUs(TemplateView):
             form_email = form.cleaned_data.get('email')
             form_message = form.cleaned_data.get('message')
             subscribe = form.cleaned_data.get('subscribe')
-
             # Check if the person wants to get subscribed
             if subscribe:
                 subscriber = Subscriber.objects.create_subscriber(form_email, form_name)
@@ -33,17 +33,18 @@ class ContactUs(TemplateView):
                     subscriber.save()
                 else:
                     pass
-            html_message = "%s : %s \n %s"%(form_name, form_email, form_message)
-            from_email = settings.EMAIL_HOST_USER
-            from_pass  = settings.EMAIL_HOST_PASSWORD
-            subject = '{} via [Guhaar Website]'.format(form_name)
-            to_email = [form_email, from_email]
+            html_message    = "%s : %s \n \n %s"%(form_name, form_email, form_message)
+            from_email      = settings.EMAIL_HOST_USER
+            from_pass       = settings.EMAIL_HOST_PASSWORD
+            subject         = '{} via Guhaar Website'.format(form_name)
+            to_email        = [form_email, from_email]
+            # sent            = SendMails(from_email, form_email, subject, html_message)
             sent = send_mail(
                 subject,
                 html_message,
                 from_email,
                 to_email,
-                fail_silently=False,
+                fail_silently=True,
             )
             if sent:
                 messages.success(request, 'Thank you! Your message has been sent succefully!')
