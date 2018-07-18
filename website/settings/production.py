@@ -11,8 +11,8 @@ SECURE_SSL_REDIRECT = False
 
 ALLOWED_HOSTS = ['guhaarwebsite.herokuapp.com', 'guhaar.com', 'www.guhaar.com']
 
-# SECRET_KEY = os.environ.get('SECRET_KEY')
-SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = 'j*u0%km0j4n(ldq3*1yry)bhg%qt=66up$x_zjbx$r_t4_!6l&'
 
 DATABASES = { 'default': dj_database_url.config() }
 
