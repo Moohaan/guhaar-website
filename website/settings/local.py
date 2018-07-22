@@ -1,4 +1,4 @@
-from website.settings.base import *
+from .base import *
 
 cloudinary.config(
   cloud_name = os.environ.get('cloud_name'),

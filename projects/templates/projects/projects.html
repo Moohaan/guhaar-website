@@ -26,7 +26,7 @@
                 <a href="{% url 'project_details' project.pk %}">
                   <h3>{{ project.title |slice:":100"}}</h3>
                 </a>
-                <span>{{ project.description|safe |slice:":700" }}</span>
+                <span>{{ project.description|safe |slice:":600" }}</span>
                 {# <p>{{ project.description | slice:":20" }}</p> #}
               </div>
               {# <h5>Related to this project</h5> #}
